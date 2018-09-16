@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { Photo } from './photo.entity';
+import { Photo } from '../model/Photo/photo.entity';
 
 @Injectable()
 export class PhotoService {
