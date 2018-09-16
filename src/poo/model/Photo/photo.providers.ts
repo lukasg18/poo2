@@ -3,7 +3,7 @@ import { Photo } from './photo.entity';
 
 export const photoProviders = [
   {
-    provide: 'PhotoRepositoryToken',
+    provide: 'UserRepositoryToken',
     useFactory: (connection: Connection) => connection.getRepository(Photo),
     inject: ['DbConnectionToken'],
   },
