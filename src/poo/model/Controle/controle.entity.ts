@@ -5,13 +5,13 @@ export class Controle {
   @PrimaryGeneratedColumn()
   idControle: number;
 
-  @Column({ length: 100 })
+  @Column({ nullable: false })
   quantidade: number;
 
   @Column({ nullable:false })
   codigoBarras: number;
 
-  @Column({ nullable:false, length:12 })
+  @Column({ nullable:false })
   data_hora: Date;
 
   // @OneToMany(type => Photo, photo => photo.user)

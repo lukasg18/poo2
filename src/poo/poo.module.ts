@@ -17,6 +17,13 @@ import { BairroProviders } from './model/Bairro/bairro.providers';
 import { EstadoProviders } from './model/Estado/estado.providers';
 import { MunicipioProviders } from './model/Municipio/municipio.providers';
 import { ControleProviders } from './model/Controle/controle.providers';
+import { MedicamentoPostoProviders } from './model/MedicamentoPosto/medicamento-posto.providers';
+import { TipoControleProviders } from './model/TipoControle/tipo-controle.providers';
+import { RecebimentoProviders } from './model/Recebimento/recebimento.providers';
+import { CategoriaProviders } from './model/Categoria/categoria.providers';
+import { LaboratorioProviders } from './model/Laboratorio/laboratorio.providers';
+import { TitularService } from './service/titular.service';
+import { TitularController } from './controller/titular.controller';
 
 @Module({
   providers: [
@@ -34,10 +41,16 @@ import { ControleProviders } from './model/Controle/controle.providers';
     ...EstadoProviders,
     ...MunicipioProviders,
     ...ControleProviders,
+    ...MedicamentoPostoProviders,
+    ...TipoControleProviders,
+    ...RecebimentoProviders,
+    ...CategoriaProviders,
+    ...LaboratorioProviders,
     MedicamentoService,
     AtendenteService,
     PessoaService,
+    TitularService
   ],
-  controllers: [PessoaController],
+  controllers: [PessoaController, TitularController],
 })
 export class PooModule {}

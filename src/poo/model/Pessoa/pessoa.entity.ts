@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Titular } from '../Titular/titular.entity';
 
 @Entity()
 export class Pessoa {
@@ -14,6 +15,6 @@ export class Pessoa {
   @Column({ nullable:false, length:12 })
   cpf: string;
 
-  // @OneToMany(type => Photo, photo => photo.user)
-  // photo: Photo[];
+  @ManyToOne(type => Titular, titular => titular.depedente)
+  titular: Titular;
 }
