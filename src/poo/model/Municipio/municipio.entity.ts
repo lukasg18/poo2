@@ -1,16 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity()
-export class Medicamento {
+export class Municipio {
   @PrimaryGeneratedColumn()
-  idMedicamento: number;
+  idMunicipio: number;
 
   @Column({ length: 80 })
   nome: string;
 
-  @Column({ length: 200 })
-  bula: string;
-
-  // @OneToMany(type => Photo, photo => photo.user, {eager:true})
+  // @OneToMany(type => Photo, photo => photo.user)
   // photo: Photo[];
 }

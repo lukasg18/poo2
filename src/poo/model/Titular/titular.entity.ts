@@ -7,8 +7,8 @@ export class Titular extends Pessoa{
   @Column({ nullable:false })
   numero_SUS: number;
 
-  @Column({ length:20 })
-  rg: string;
+  @Column({ nullable:false })
+  rg: number;
 
   // @ManyToOne(type => User, user => user.photo)
   // user: User

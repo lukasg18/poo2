@@ -4,9 +4,9 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 export class Sexo {
 
   @PrimaryGeneratedColumn()
-  id: number;
+  id_sexo: number;
 
-  @Column({ length:20 })
+  @Column({ length:10 })
   tipo: string;
 
   // @ManyToOne(type => User, user => user.photo)

@@ -11,6 +11,12 @@ import { TitularProviders } from './model/Titular/titular.providers';
 import { SexoProviders } from './model/Sexo/sexo.providers';
 import { SolicitacaoProviders } from './model/Solicitacao/solicitacao.providers';
 import { EstadoSolicitacaoProviders } from './model/EstadoSolicitacao/estado-solicitacao.providers';
+import { EstadoMedicamentoProviders } from './model/EstadoMedicamento/estado-medicamento.providers';
+import { PostoProviders } from './model/Posto/posto.providers';
+import { BairroProviders } from './model/Bairro/bairro.providers';
+import { EstadoProviders } from './model/Estado/estado.providers';
+import { MunicipioProviders } from './model/Municipio/municipio.providers';
+import { ControleProviders } from './model/Controle/controle.providers';
 
 @Module({
   providers: [
@@ -22,6 +28,12 @@ import { EstadoSolicitacaoProviders } from './model/EstadoSolicitacao/estado-sol
     ...SexoProviders,
     ...SolicitacaoProviders,
     ...EstadoSolicitacaoProviders,
+    ...EstadoMedicamentoProviders,
+    ...PostoProviders,
+    ...BairroProviders,
+    ...EstadoProviders,
+    ...MunicipioProviders,
+    ...ControleProviders,
     MedicamentoService,
     AtendenteService,
     PessoaService,
