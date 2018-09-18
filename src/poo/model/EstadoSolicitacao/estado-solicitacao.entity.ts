@@ -1,19 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity()
-export class Pessoa {
+export class EstadoSolicitacao {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 200 })
-  name: string;
-
-  @Column({ nullable:false })
-  cpf: number;
-
-  @Column({ nullable:false })
-  data_nascimento: Date;
-
+  @Column({ nullable: false, length: 20 })
+  tipo: string;
+  
   // @OneToMany(type => Photo, photo => photo.user)
   // photo: Photo[];
 }

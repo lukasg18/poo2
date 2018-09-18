@@ -17,3 +17,22 @@ export const databaseProviders = [
     }),
   },
 ];
+
+// export const databaseProviders = [
+//   {
+//     provide: 'DbConnectionToken',
+//     useFactory: async () => await createConnection({
+//       type: 'postgres',
+//       host: 'elmer.db.elephantsql.com',
+//       port: 5432,
+//       username: 'aiexkamd',
+//       password: 'QpfBdkd4AT2chCRjdjGbPPoSXdctwU9y',
+//       database: 'aiexkamd',
+//       entities: [
+//           __dirname + '/../**/*.entity{.ts,.js}',
+//       ],
+//       dropSchema:true,
+//       synchronize: true,
+//     }),
+//   },
+// ];

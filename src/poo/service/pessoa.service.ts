@@ -6,10 +6,10 @@ import { Pessoa } from '../model/Pessoa/pessoa.entity';
 export class PessoaService {
   constructor(
     @Inject('PessoaRepositoryToken')
-    private readonly photoRepository: Repository<Pessoa>,
+    private readonly pessoaRepository: Repository<Pessoa>,
   ) {}
 
   async findAll(): Promise<Pessoa[]> {
-    return await this.photoRepository.find();
+    return await this.pessoaRepository.find();
   }
 }
