@@ -12,7 +12,7 @@ async function bootstrap() {
     .addTag('poo')
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('', app, document);
+  SwaggerModule.setup('docs', app, document);
 
 
   await app.listen(parseInt(process.env.PORT) || 3000);
