@@ -14,6 +14,10 @@ export class Recebimento {
   @Column({ nullable: false })
   data_hora: Date;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @OneToMany(type => RecebimentoMedicamento, recebimentoMedicamento => recebimentoMedicamento.recebimento)
   recebimentoMedicamento: RecebimentoMedicamento[];
 

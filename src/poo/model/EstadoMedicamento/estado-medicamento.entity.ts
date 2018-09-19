@@ -9,6 +9,10 @@ export class EstadoMedicamento {
   @Column({ length: 30 })
   tipo: string;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @OneToMany(type => Medicamento, medicamento => medicamento.estadoMedicamento)
   medicamento: Medicamento[]
 }

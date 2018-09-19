@@ -17,6 +17,10 @@ export class Pessoa {
   @Column({ nullable:false, length:12 })
   cpf: string;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @ManyToOne(type => Titular, titular => titular.depedente)
   titular: Titular;
 

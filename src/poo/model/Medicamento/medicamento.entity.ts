@@ -18,6 +18,10 @@ export class Medicamento {
   @Column({ length: 200 })
   bula: string;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @ManyToMany(type => Laboratorio)
   @JoinTable({name: "Medicamento_Laboratorio"})
   laboratorio: Laboratorio;
@@ -26,11 +30,12 @@ export class Medicamento {
   @JoinTable({name: "Medicamento_Categoria"})
   categoria: Categoria;
 
+  @ManyToMany(type => Solicitacao)
+  @JoinTable({name: "Medicamento_Solicitacao"})
+  solicitacao: Solicitacao;
+
   @ManyToOne(type => EstadoMedicamento, estadoMedicamento => estadoMedicamento.medicamento)
   estadoMedicamento: EstadoMedicamento;
-
-  @ManyToOne(type => Solicitacao, solicitacao => solicitacao.medicamento)
-  solicitacao: Solicitacao;
 
   @OneToMany(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.medicamento)
   medicamentoPosto: MedicamentoPosto[];

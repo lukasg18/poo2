@@ -24,6 +24,12 @@ export class Atendente {
   @Column({ length:20 })
   rg: string;
 
+
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
+
   @OneToMany(type => RecebimentoMedicamento, recebimentoMedicamento => recebimentoMedicamento.atedente)
   recebimentoMedicamento: RecebimentoMedicamento[];
 

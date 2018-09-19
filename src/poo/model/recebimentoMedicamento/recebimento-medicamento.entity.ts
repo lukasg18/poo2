@@ -14,6 +14,10 @@ export class RecebimentoMedicamento {
   @Column({ nullable: false })   
   data_hora: Date;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @ManyToOne(type => Atendente, atendente => atendente.recebimentoMedicamento)   
   atedente: Atendente;
 

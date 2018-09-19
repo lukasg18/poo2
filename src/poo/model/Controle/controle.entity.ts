@@ -17,11 +17,15 @@ export class Controle {
   @Column({ nullable:false })
   data_hora: Date;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @OneToMany(type => Atendente, atendente => atendente.controle)
   atendente: Atendente[];
 
-  @OneToMany(type => TipoControle, tipoControle => tipoControle.controle)
-  tipoControle: TipoControle[];
+  @ManyToOne(type => TipoControle, tipoControle => tipoControle.controle)
+  tipoControle: TipoControle;
 
   @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.controle)
   medicamentoPosto: MedicamentoPosto;

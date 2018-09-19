@@ -6,6 +6,10 @@ export class TipoControle {
   @PrimaryGeneratedColumn()
   idTipoControle: number;
 
-  @ManyToOne(type => Controle, controle => controle.tipoControle)
-  controle: Controle;
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
+  @OneToMany(type => Controle, controle => controle.tipoControle)
+  controle: Controle[];
 }

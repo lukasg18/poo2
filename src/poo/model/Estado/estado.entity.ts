@@ -9,6 +9,10 @@ export class Estado {
   @Column({ length: 30 })
   nome: string;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @OneToMany(type => Municipio, municipio => municipio.estado)
   municipio: Municipio[];
 }

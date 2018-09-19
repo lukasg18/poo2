@@ -10,6 +10,10 @@ export class Bairro {
   @Column({ length: 30 })
   nome: string;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @ManyToOne(type => Municipio, municipio => municipio.bairro)
   municipio: Municipio;
 

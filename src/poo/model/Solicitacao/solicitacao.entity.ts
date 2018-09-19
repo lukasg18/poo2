@@ -10,14 +10,15 @@ export class Solicitacao {
 
   @Column({ nullable:false })
   data_hora: Date;
+
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
   
   @ManyToOne(type => EstadoSolicitacao, estadoSolicitacao => estadoSolicitacao.solicitacao)
   estadoSolicitacao: EstadoSolicitacao;
 
   @ManyToOne(type => Titular, titular => titular.solicitacao)
   titular: Titular
-
-  @OneToMany(type => Medicamento, medicamento => medicamento.solicitacao)
-  medicamento: Medicamento[];
 
 }

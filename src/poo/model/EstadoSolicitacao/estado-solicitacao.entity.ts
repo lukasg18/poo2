@@ -8,6 +8,10 @@ export class EstadoSolicitacao {
 
   @Column({ nullable: false, length: 30 })
   tipo: string;
+
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
   
   @OneToMany(type => Solicitacao, solicitacao => solicitacao.estadoSolicitacao)
   solicitacao: Solicitacao[];

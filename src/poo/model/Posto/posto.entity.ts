@@ -23,6 +23,10 @@ export class Posto {
   @Column({ length: 20 })
   coordGeoLat: string;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @OneToMany(type => Atendente, atendente => atendente.posto)
   atendente: Atendente[];
 

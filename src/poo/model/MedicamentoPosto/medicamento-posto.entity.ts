@@ -9,6 +9,10 @@ export class MedicamentoPosto {
   @PrimaryGeneratedColumn()
   idMedicamentoPosto: number;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @ManyToOne(type => Posto, posto => posto.medicamentoPosto)
   posto: Posto;
 

@@ -23,6 +23,10 @@ export class Titular {
   @Column({ nullable:false })
   rg: number;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @OneToMany(type => Pessoa, depedente => depedente.titular, { eager:true })
   depedente: Pessoa[];
 

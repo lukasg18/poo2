@@ -17,6 +17,10 @@ export class Lote {
   @Column()  
   numero: Number;
 
+  //###################################################################
+  //############################ RELAÇÕES #############################
+  //###################################################################
+
   @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.posto)
   medicamentoPosto: MedicamentoPosto
 }
