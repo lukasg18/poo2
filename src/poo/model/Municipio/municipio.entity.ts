@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Estado } from '../Estado/estado.entity';
+import { Bairro } from '../Bairro/bairro.entity';
 
 @Entity()
 export class Municipio {
@@ -8,6 +10,9 @@ export class Municipio {
   @Column({ length: 80 })
   nome: string;
 
-  // @OneToMany(type => Photo, photo => photo.user)
-  // photo: Photo[];
+  @ManyToOne(type => Estado, estado => estado.municipio)
+  estado: Estado;
+
+  @OneToMany(type => Bairro, bairro => bairro.municipio)
+  bairro: Bairro[];
 }

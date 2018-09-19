@@ -8,6 +8,4 @@ export class Laboratorio {
   @Column({ length: 30 })
   nome: string;
 
-  // @OneToMany(type => Photo, photo => photo.user)
-  // photo: Photo[];
 }

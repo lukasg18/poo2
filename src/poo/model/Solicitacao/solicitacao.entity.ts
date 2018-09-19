@@ -1,4 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
+import { EstadoSolicitacao } from '../EstadoSolicitacao/estado-solicitacao.entity';
+import { Titular } from '../Titular/titular.entity';
+import { Medicamento } from '../Medicamento/medicamento.entity';
 
 @Entity()
 export class Solicitacao {
@@ -8,6 +11,13 @@ export class Solicitacao {
   @Column({ nullable:false })
   data_hora: Date;
   
-  // @OneToMany(type => Photo, photo => photo.user)
-  // photo: Photo[];
+  @ManyToOne(type => EstadoSolicitacao, estadoSolicitacao => estadoSolicitacao.solicitacao)
+  estadoSolicitacao: EstadoSolicitacao;
+
+  @ManyToOne(type => Titular, titular => titular.solicitacao)
+  titular: Titular
+
+  @OneToMany(type => Medicamento, medicamento => medicamento.solicitacao)
+  medicamento: Medicamento[];
+
 }

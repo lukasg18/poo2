@@ -1,5 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 import { Pessoa } from '../Pessoa/pessoa.entity';
+import { Solicitacao } from '../Solicitacao/solicitacao.entity';
+import { Recebimento } from '../Recebimento/recebimento.entity';
 
 @Entity()
 export class Titular {
@@ -22,5 +24,11 @@ export class Titular {
   rg: number;
 
   @OneToMany(type => Pessoa, depedente => depedente.titular, { eager:true })
-  depedente: Pessoa[]
+  depedente: Pessoa[];
+
+  @OneToMany(type => Recebimento, recebimento => recebimento.titular, { eager:true })
+  recebimento: Recebimento[];
+
+  @OneToMany(type => Solicitacao, solicitacao => solicitacao.titular, { eager:true })
+  solicitacao: Solicitacao[];
 }

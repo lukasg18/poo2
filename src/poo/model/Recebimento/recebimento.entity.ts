@@ -1,4 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Pessoa } from '../Pessoa/pessoa.entity';
+import { RecebimentoMedicamento } from '../recebimentoMedicamento/recebimento-medicamento.entity';
+import { Titular } from '../Titular/titular.entity';
 
 @Entity()
 export class Recebimento {
@@ -11,6 +14,12 @@ export class Recebimento {
   @Column({ nullable: false })
   data_hora: Date;
 
-  // @OneToMany(type => Photo, photo => photo.user, {eager:true})
-  // photo: Photo[];
+  @OneToMany(type => RecebimentoMedicamento, recebimentoMedicamento => recebimentoMedicamento.recebimento)
+  recebimentoMedicamento: RecebimentoMedicamento[];
+
+  @ManyToOne(type => Pessoa, pessoa => pessoa.recebimento)
+  pessoa: Pessoa;
+
+  @ManyToOne(type => Titular, titular => titular.recebimento)
+  titular: Titular;    
 }

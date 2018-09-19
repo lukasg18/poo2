@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Solicitacao } from '../Solicitacao/solicitacao.entity';
 
 @Entity()
 export class EstadoSolicitacao {
@@ -8,6 +9,6 @@ export class EstadoSolicitacao {
   @Column({ nullable: false, length: 30 })
   tipo: string;
   
-  // @OneToMany(type => Photo, photo => photo.user)
-  // photo: Photo[];
+  @OneToMany(type => Solicitacao, solicitacao => solicitacao.estadoSolicitacao)
+  solicitacao: Solicitacao[];
 }

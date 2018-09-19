@@ -1,4 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Atendente } from '../Atendente/atendente.entity';
+import { Bairro } from '../Bairro/bairro.entity';
+import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
 
 @Entity()
 export class Posto {
@@ -20,6 +23,13 @@ export class Posto {
   @Column({ length: 20 })
   coordGeoLat: string;
 
-  // @OneToMany(type => Photo, photo => photo.user)
-  // photo: Photo[];
+  @OneToMany(type => Atendente, atendente => atendente.posto)
+  atendente: Atendente[];
+
+  @ManyToOne(type => Bairro, bairro => bairro.posto)
+  bairro: Bairro;
+
+  @OneToMany(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.posto)
+  medicamentoPosto: MedicamentoPosto[];
+
 }

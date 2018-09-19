@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Municipio } from '../Municipio/municipio.entity';
 
 @Entity()
 export class Estado {
@@ -8,6 +9,6 @@ export class Estado {
   @Column({ length: 30 })
   nome: string;
 
-  // @OneToMany(type => Photo, photo => photo.user)
-  // photo: Photo[];
+  @OneToMany(type => Municipio, municipio => municipio.estado)
+  municipio: Municipio[];
 }

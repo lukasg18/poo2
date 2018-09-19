@@ -24,6 +24,8 @@ import { CategoriaProviders } from './model/Categoria/categoria.providers';
 import { LaboratorioProviders } from './model/Laboratorio/laboratorio.providers';
 import { TitularService } from './service/titular.service';
 import { TitularController } from './controller/titular.controller';
+import { RecebimentoMedicamentoProviders } from './model/recebimentoMedicamento/recebimento-medicamento.providers';
+import { LoteProviders } from './model/Lote/lote.providers';
 
 @Module({
   providers: [
@@ -46,6 +48,8 @@ import { TitularController } from './controller/titular.controller';
     ...RecebimentoProviders,
     ...CategoriaProviders,
     ...LaboratorioProviders,
+    ...RecebimentoMedicamentoProviders,
+    ...LoteProviders,
     MedicamentoService,
     AtendenteService,
     PessoaService,

@@ -8,6 +8,4 @@ export class Categoria {
   @Column({ length: 20 })
   tipo: string;
 
-  // @OneToMany(type => Photo, photo => photo.user)
-  // photo: Photo[];
 }

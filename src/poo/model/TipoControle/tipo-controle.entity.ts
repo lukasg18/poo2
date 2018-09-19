@@ -1,10 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne} from 'typeorm';
+import { Controle } from '../Controle/controle.entity';
 
 @Entity()
 export class TipoControle {
   @PrimaryGeneratedColumn()
   idTipoControle: number;
 
-  // @OneToMany(type => Photo, photo => photo.user, {eager:true})
-  // photo: Photo[];
+  @ManyToOne(type => Controle, controle => controle.tipoControle)
+  controle: Controle;
 }
