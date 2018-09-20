@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { Atendente } from '../Atendente/atendente.entity';
 import { Medicamento } from '../Medicamento/medicamento.entity';
 import { Recebimento } from '../Recebimento/recebimento.entity';
@@ -18,10 +18,12 @@ export class RecebimentoMedicamento {
   //############################ RELAÇÕES #############################
   //###################################################################
 
-  @ManyToOne(type => Atendente, atendente => atendente.recebimentoMedicamento)   
+  @ManyToOne(type => Atendente, atendente => atendente.recebimentoMedicamento)
+  @JoinColumn({name: "idAtendente"})   
   atedente: Atendente;
 
-  @ManyToOne(type => Recebimento, recebimento => recebimento.recebimentoMedicamento)   
+  @ManyToOne(type => Recebimento, recebimento => recebimento.recebimentoMedicamento)
+  @JoinColumn({name: "idRecebimento"})    
   recebimento: Recebimento;
 
   @OneToMany(type => Medicamento, medicamento => medicamento.recebimentoMedicamento)

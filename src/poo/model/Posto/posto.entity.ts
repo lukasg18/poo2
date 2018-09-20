@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { Atendente } from '../Atendente/atendente.entity';
 import { Bairro } from '../Bairro/bairro.entity';
 import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
@@ -31,6 +31,7 @@ export class Posto {
   atendente: Atendente[];
 
   @ManyToOne(type => Bairro, bairro => bairro.posto)
+  @JoinColumn({name: "idBairro"})
   bairro: Bairro;
 
   @OneToMany(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.posto)

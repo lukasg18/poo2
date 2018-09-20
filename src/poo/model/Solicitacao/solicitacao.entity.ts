@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { EstadoSolicitacao } from '../EstadoSolicitacao/estado-solicitacao.entity';
 import { Titular } from '../Titular/titular.entity';
 import { Medicamento } from '../Medicamento/medicamento.entity';
@@ -16,9 +16,11 @@ export class Solicitacao {
   //###################################################################
   
   @ManyToOne(type => EstadoSolicitacao, estadoSolicitacao => estadoSolicitacao.solicitacao)
+  @JoinColumn({name: "idEstadoSolicitacao"})   
   estadoSolicitacao: EstadoSolicitacao;
 
   @ManyToOne(type => Titular, titular => titular.solicitacao)
+  @JoinColumn({name: "idTitular"})   
   titular: Titular
 
 }

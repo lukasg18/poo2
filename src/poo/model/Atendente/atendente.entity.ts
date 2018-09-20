@@ -6,7 +6,9 @@ import { PessoaAbs } from '../Abstract/pessoa-abstract.entity';
 import { Pessoa } from '../Pessoa/pessoa.entity';
 
 @Entity()
-export class Atendente extends PessoaAbs{
+export class Atendente{
+  @PrimaryGeneratedColumn()
+  idAtendente: number;
 
   @Column({ nullable:false })
   numero_registro: number;

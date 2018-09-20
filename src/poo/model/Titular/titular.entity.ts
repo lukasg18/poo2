@@ -6,7 +6,9 @@ import { Depedente } from '../Depedente/depedente.entity';
 import { PessoaAbs } from '../Abstract/pessoa-abstract.entity';
 
 @Entity()
-export class Titular extends PessoaAbs{
+export class Titular{
+  @PrimaryGeneratedColumn()
+  idTitular: number;
 
   @Column({ nullable:false })
   numero_SUS: number;
