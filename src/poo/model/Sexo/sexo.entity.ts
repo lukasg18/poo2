@@ -5,7 +5,7 @@ import { Pessoa } from '../Pessoa/pessoa.entity';
 export class Sexo {
 
   @PrimaryGeneratedColumn()
-  id_sexo: number;
+  idSexo: number;
 
   @Column({ length:10 })
   tipo: string;

@@ -6,7 +6,7 @@ import { Recebimento } from '../Recebimento/recebimento.entity';
 @Entity()
 export class RecebimentoMedicamento {
   @PrimaryGeneratedColumn()
-  idRecebimento: number;
+  idRecebimentoMedicamento: number;
 
   @Column({ nullable: false })
   quantidadeMedicamentos: number; 

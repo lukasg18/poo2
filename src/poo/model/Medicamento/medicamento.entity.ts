@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, JoinTable, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, JoinTable, ManyToOne, JoinColumn } from 'typeorm';
 import { Laboratorio } from '../Laboratorio/laboratorio.entity';
 import { Categoria } from '../Categoria/categoria.entity';
 import { Recebimento } from '../Recebimento/recebimento.entity';
@@ -35,12 +35,14 @@ export class Medicamento {
   solicitacao: Solicitacao;
 
   @ManyToOne(type => EstadoMedicamento, estadoMedicamento => estadoMedicamento.medicamento)
+  @JoinColumn({name: "idEstadoMedicamento"})
   estadoMedicamento: EstadoMedicamento;
 
   @OneToMany(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.medicamento)
   medicamentoPosto: MedicamentoPosto[];
 
   @ManyToOne(type => RecebimentoMedicamento, recebimentoMedicamento => recebimentoMedicamento.medicamento)
+  @JoinColumn({name: "idRecebimentoMedicamento"})
   recebimentoMedicamento: RecebimentoMedicamento;
 
 }

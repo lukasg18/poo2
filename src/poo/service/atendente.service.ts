@@ -9,7 +9,7 @@ export class AtendenteService {
     private readonly atendenteRepository: Repository<Atendente>,
   ) {}
 
-  async findAll(id): Promise<Atendente[]> {
-    return await this.atendenteRepository.find({id:id});
+  async findAll(): Promise<Atendente[]> {
+    return await this.atendenteRepository.find();
   }
 }

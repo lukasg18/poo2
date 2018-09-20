@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { Municipio } from '../Municipio/municipio.entity';
 import { Posto } from '../Posto/posto.entity';
 
@@ -15,6 +15,7 @@ export class Bairro {
   //###################################################################
 
   @ManyToOne(type => Municipio, municipio => municipio.bairro)
+  @JoinColumn({name: "idMunicipio"})
   municipio: Municipio;
 
   @OneToMany(type => Posto, posto => posto.bairro)
