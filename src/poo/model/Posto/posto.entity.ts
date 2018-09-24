@@ -6,7 +6,7 @@ import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
 @Entity()
 export class Posto {
   @PrimaryGeneratedColumn()
-  idPosto: number;
+  idposto: number;
 
   @Column({ length: 200 })
   complemento: string;
@@ -18,10 +18,10 @@ export class Posto {
   numero: number;
 
   @Column({ length: 20 })
-  coordGeoLong: string;
+  coordgeolong: string;
 
   @Column({ length: 20 })
-  coordGeoLat: string;
+  coordgeolat: string;
 
   //###################################################################
   //############################ RELAÇÕES #############################
@@ -31,7 +31,7 @@ export class Posto {
   atendente: Atendente[];
 
   @ManyToOne(type => Bairro, bairro => bairro.posto)
-  @JoinColumn({name: "idBairro"})
+  @JoinColumn({name: "idbairro"})
   bairro: Bairro;
 
   @OneToMany(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.posto)

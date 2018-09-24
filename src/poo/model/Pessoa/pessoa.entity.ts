@@ -15,7 +15,7 @@ export class Pessoa extends PessoaAbs{
 
 
   @ManyToOne(type => Sexo, sexo => sexo.pessoa)
-  @JoinColumn({name: "idSexo"})
+  @JoinColumn({name: "idsexo"})
   sexo: Sexo;
 
   @OneToMany(type => Recebimento, recebimento => recebimento.pessoa)

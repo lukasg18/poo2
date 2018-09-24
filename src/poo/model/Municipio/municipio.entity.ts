@@ -5,7 +5,7 @@ import { Bairro } from '../Bairro/bairro.entity';
 @Entity()
 export class Municipio {
   @PrimaryGeneratedColumn()
-  idMunicipio: number;
+  idmunicipio: number;
 
   @Column({ length: 80 })
   nome: string;
@@ -15,7 +15,7 @@ export class Municipio {
   //###################################################################
 
   @ManyToOne(type => Estado, estado => estado.municipio)
-  @JoinColumn({name: "idEstado"})
+  @JoinColumn({name: "idestado"})
   estado: Estado;
 
   @OneToMany(type => Bairro, bairro => bairro.municipio)

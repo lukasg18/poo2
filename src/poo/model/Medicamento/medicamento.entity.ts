@@ -10,7 +10,7 @@ import { RecebimentoMedicamento } from '../recebimentoMedicamento/recebimento-me
 @Entity()
 export class Medicamento {
   @PrimaryGeneratedColumn()
-  idMedicamento: number;
+  idmedicamento: number;
 
   @Column({ length: 80 })
   nome: string;
@@ -23,26 +23,26 @@ export class Medicamento {
   //###################################################################
 
   @ManyToMany(type => Laboratorio)
-  @JoinTable({name: "Medicamento_Laboratorio"})
+  @JoinTable({name: "medicamento_laboratorio"})
   laboratorio: Laboratorio;
 
   @ManyToMany(type => Categoria)
-  @JoinTable({name: "Medicamento_Categoria"})
+  @JoinTable({name: "medicamento_categoria"})
   categoria: Categoria;
 
   @ManyToMany(type => Solicitacao)
-  @JoinTable({name: "Medicamento_Solicitacao"})
+  @JoinTable({name: "medicamento_solicitacao"})
   solicitacao: Solicitacao;
 
   @ManyToOne(type => EstadoMedicamento, estadoMedicamento => estadoMedicamento.medicamento)
-  @JoinColumn({name: "idEstadoMedicamento"})
+  @JoinColumn({name: "idestadomedicamento"})
   estadoMedicamento: EstadoMedicamento;
 
   @OneToMany(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.medicamento)
   medicamentoPosto: MedicamentoPosto[];
 
   @ManyToOne(type => RecebimentoMedicamento, recebimentoMedicamento => recebimentoMedicamento.medicamento)
-  @JoinColumn({name: "idRecebimentoMedicamento"})
+  @JoinColumn({name: "idrecebimentomedicamento"})
   recebimentoMedicamento: RecebimentoMedicamento;
 
 }

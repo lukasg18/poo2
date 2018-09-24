@@ -13,11 +13,11 @@ export class Depedente extends PessoaAbs{
   //###################################################################
 
   @ManyToOne(type => Titular, titular => titular.depedente)
-  @JoinColumn({name: "idTitular"})
+  @JoinColumn({name: "idtitular"})
   titular: Titular;
 
   @ManyToOne(type => Pessoa, pessoa => pessoa.depedente)
-  @JoinColumn({name: "idPessoa"})
+  @JoinColumn({name: "idpessoa"})
   pessoa: Pessoa;
 
 }

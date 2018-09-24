@@ -4,7 +4,7 @@ import { Controle } from '../Controle/controle.entity';
 @Entity()
 export class TipoControle {
   @PrimaryGeneratedColumn()
-  idTipoControle: number;
+  idtipoControle: number;
 
   //###################################################################
   //############################ RELAÇÕES #############################

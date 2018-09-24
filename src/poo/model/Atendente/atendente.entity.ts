@@ -8,10 +8,10 @@ import { Pessoa } from '../Pessoa/pessoa.entity';
 @Entity()
 export class Atendente{
   @PrimaryGeneratedColumn()
-  idAtendente: number;
+  idatendente: number;
 
   @Column({ nullable:false })
-  numero_registro: number;
+  numeroregistro: number;
 
   //###################################################################
   //############################ RELAÇÕES #############################
@@ -22,14 +22,14 @@ export class Atendente{
   recebimentoMedicamento: RecebimentoMedicamento[];
 
   @ManyToOne(type => Posto, posto => posto.atendente)
-  @JoinColumn({name: "idPosto"})
+  @JoinColumn({name: "idposto"})
   posto: Posto;
 
   @ManyToOne(type => Controle, controle => controle.atendente)
-  @JoinColumn({name: "idControle"})
+  @JoinColumn({name: "idcontrole"})
   controle: Controle;
 
   @ManyToOne(type => Pessoa, pessoa => pessoa.atendente)
-  @JoinColumn({name: "idPessoa"})
+  @JoinColumn({name: "idpessoa"})
   pessoa: Pessoa;
 }

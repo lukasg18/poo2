@@ -9,7 +9,7 @@ export abstract class PessoaAbs{
     nome: string;
   
     @Column({ nullable:false })
-    data_nascimento: Date;
+    datanascimento: Date;
   
     @Column({ nullable:false, length:12 })
     cpf: string;

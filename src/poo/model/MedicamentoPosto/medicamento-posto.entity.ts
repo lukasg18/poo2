@@ -7,22 +7,22 @@ import { Controle } from '../Controle/controle.entity';
 @Entity()
 export class MedicamentoPosto {
   @PrimaryGeneratedColumn()
-  idMedicamentoPosto: number;
+  idmedicamentoposto: number;
 
   //###################################################################
   //############################ RELAÇÕES #############################
   //###################################################################
 
   @ManyToOne(type => Posto, posto => posto.medicamentoPosto)
-  @JoinColumn({name: "idPosto"})
+  @JoinColumn({name: "idposto"})
   posto: Posto;
 
   @ManyToOne(type => Medicamento, medicamento => medicamento.medicamentoPosto)
-  @JoinColumn({name: "idMedicamento"})
+  @JoinColumn({name: "idmedicamento"})
   medicamento: Medicamento;
 
   @ManyToOne(type => Lote, lote => lote.medicamentoPosto)
-  @JoinColumn({name: "idLote"})
+  @JoinColumn({name: "idlote"})
   lote: Lote;
 
   @OneToMany(type => Controle, controle => controle.medicamentoPosto)

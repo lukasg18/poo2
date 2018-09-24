@@ -6,16 +6,16 @@ import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
 @Entity()
 export class Controle {
   @PrimaryGeneratedColumn()
-  idControle: number;
+  idcontrole: number;
 
   @Column({ nullable: false })
   quantidade: number;
 
   @Column({ nullable:false })
-  codigoBarras: number;
+  codigobarras: number;
 
   @Column({ nullable:false })
-  data_hora: Date;
+  datahora: Date;
 
   //###################################################################
   //############################ RELAÇÕES #############################
@@ -25,10 +25,10 @@ export class Controle {
   atendente: Atendente[];
 
   @ManyToOne(type => TipoControle, tipoControle => tipoControle.controle)
-  @JoinColumn({name: "idTipoControle"})
+  @JoinColumn({name: "idtipocontrole"})
   tipoControle: TipoControle;
 
   @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.controle)
-  @JoinColumn({name: "idMedicamentoPosto"})
+  @JoinColumn({name: "idmedicamentoposto"})
   medicamentoPosto: MedicamentoPosto;
 }

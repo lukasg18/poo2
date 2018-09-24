@@ -6,13 +6,13 @@ import { Titular } from '../Titular/titular.entity';
 @Entity()
 export class Recebimento {
   @PrimaryGeneratedColumn()
-  idRecebimento: number;
+  idrecebimento: number;
 
   @Column({ nullable: false })
-  quantidadeMedicamentos: number;
+  quantidademedicamentos: number;
 
   @Column({ nullable: false })
-  data_hora: Date;
+  datahora: Date;
 
   //###################################################################
   //############################ RELAÇÕES #############################
@@ -22,6 +22,6 @@ export class Recebimento {
   recebimentoMedicamento: RecebimentoMedicamento[];
 
   @ManyToOne(type => Pessoa, pessoa => pessoa.recebimento)
-  @JoinColumn({name: "idPessoa"})
+  @JoinColumn({name: "idpessoa"})
   pessoa: Pessoa;
 }

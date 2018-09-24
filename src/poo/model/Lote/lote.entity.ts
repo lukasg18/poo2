@@ -6,13 +6,13 @@ import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
 @Entity()
 export class Lote {
   @PrimaryGeneratedColumn()
-  idLote: Number;
+  idlote: Number;
 
   @Column()
   quantidade: Number;
 
   @Column()
-  dataVencimento: Date;
+  datavencimento: Date;
 
   @Column()  
   numero: Number;
@@ -22,6 +22,6 @@ export class Lote {
   //###################################################################
 
   @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.posto)
-  @JoinColumn({name: "idMedicamentoPosto"})
+  @JoinColumn({name: "idmedicamentoposto"})
   medicamentoPosto: MedicamentoPosto
 }

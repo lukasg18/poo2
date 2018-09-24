@@ -4,7 +4,7 @@ import { Municipio } from '../Municipio/municipio.entity';
 @Entity()
 export class Estado {
   @PrimaryGeneratedColumn()
-  idEstado: number;
+  idestado: number;
 
   @Column({ length: 30 })
   nome: string;

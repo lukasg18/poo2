@@ -4,7 +4,7 @@ import { Solicitacao } from '../Solicitacao/solicitacao.entity';
 @Entity()
 export class EstadoSolicitacao {
   @PrimaryGeneratedColumn()
-  idEstadoSolicitacao: number;
+  idestadosolicitacao: number;
 
   @Column({ nullable: false, length: 30 })
   tipo: string;

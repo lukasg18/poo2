@@ -6,21 +6,21 @@ import { Medicamento } from '../Medicamento/medicamento.entity';
 @Entity()
 export class Solicitacao {
   @PrimaryGeneratedColumn()
-  idSolicitacao: number;
+  idsolicitacao: number;
 
   @Column({ nullable:false })
-  data_hora: Date;
+  datahora: Date;
 
   //###################################################################
   //############################ RELAÇÕES #############################
   //###################################################################
   
   @ManyToOne(type => EstadoSolicitacao, estadoSolicitacao => estadoSolicitacao.solicitacao)
-  @JoinColumn({name: "idEstadoSolicitacao"})   
+  @JoinColumn({name: "idestadosolicitacao"})   
   estadoSolicitacao: EstadoSolicitacao;
 
   @ManyToOne(type => Titular, titular => titular.solicitacao)
-  @JoinColumn({name: "idTitular"})   
+  @JoinColumn({name: "idtitular"})   
   titular: Titular
 
 }

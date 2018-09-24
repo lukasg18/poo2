@@ -8,10 +8,10 @@ import { PessoaAbs } from '../Abstract/pessoa-abstract.entity';
 @Entity()
 export class Titular{
   @PrimaryGeneratedColumn()
-  idTitular: number;
+  idtitular: number;
 
   @Column({ nullable:false })
-  numero_SUS: number;
+  numerosus: number;
 
   //###################################################################
   //############################ RELAÇÕES #############################
@@ -24,6 +24,6 @@ export class Titular{
   solicitacao: Solicitacao[];
 
   @ManyToOne(type => Pessoa, pessoa => pessoa.titular)
-  @JoinColumn({name: "idPessoa"})
+  @JoinColumn({name: "idpessoa"})
   pessoa: Pessoa;
 }
