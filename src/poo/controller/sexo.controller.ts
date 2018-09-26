@@ -1,4 +1,4 @@
-import { Get, Controller, Post, Body } from '@nestjs/common';
+import { Get, Controller, Post, Body, Param } from '@nestjs/common';
 import { SexoService } from '../service/sexo.service';
 import { Sexo } from '../model/Sexo/sexo.entity';
 
@@ -8,13 +8,28 @@ export class SexoController {
   constructor(private readonly sexoService: SexoService) {}
 
   @Get('/sexo')
-  public GetAll() {
+  public getAll() {
     return this.sexoService.findAll();
   }
 
+  @Get('/sexo/:id')
+  public getOne(@Param() id: number) {
+    return this.sexoService.findOne(id);
+  }
+
   @Post('/sexo')
-  public Create(@Body() body: Sexo) {
+  public createOne(@Body() body: Sexo) {
     return this.sexoService.Create(body);
+  }
+
+  @Post('/sexo/remove')
+  public removeOne(@Body() body: Sexo) {
+    return this.sexoService.Remove(body);
+  }
+
+  @Post('/sexo/update')
+  public updateOne(@Body() body: Sexo) {
+    return this.sexoService.Update(body);
   }
   
 }
