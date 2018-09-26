@@ -26,6 +26,8 @@ import { TitularService } from './service/titular.service';
 import { TitularController } from './controller/titular.controller';
 import { RecebimentoMedicamentoProviders } from './model/recebimentoMedicamento/recebimento-medicamento.providers';
 import { LoteProviders } from './model/Lote/lote.providers';
+import { SexoService } from './service/sexo.service';
+import { SexoController } from './controller/sexo.controller';
 
 @Module({
   providers: [
@@ -53,8 +55,9 @@ import { LoteProviders } from './model/Lote/lote.providers';
     MedicamentoService,
     AtendenteService,
     PessoaService,
-    TitularService
+    TitularService,
+    SexoService,
   ],
-  controllers: [PessoaController, TitularController],
+  controllers: [PessoaController, TitularController, SexoController],
 })
 export class PooModule {}
