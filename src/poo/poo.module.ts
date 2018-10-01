@@ -26,32 +26,39 @@ import { LoteProviders } from './model/Lote/lote.providers';
 import { SexoService } from './service/sexo.service';
 import { SexoController } from './controller/sexo.controller';
 
+const modelProvider = [
+  ...MedicamentoProviders,
+  ...PessoaProviders,
+  ...atendenteProviders,
+  ...databaseProviders,
+  ...TitularProviders,
+  ...SolicitacaoProviders,
+  ...EstadoSolicitacaoProviders,
+  ...PostoProviders,
+  ...BairroProviders,
+  ...EstadoProviders,
+  ...MunicipioProviders,
+  ...ControleProviders,
+  ...MedicamentoPostoProviders,
+  ...RecebimentoProviders,
+  ...CategoriaProviders,
+  ...LaboratorioProviders,
+  ...RecebimentoMedicamentoProviders,
+  ...LoteProviders,
+];
+
+const modelService = [
+  MedicamentoService,
+  AtendenteService,
+  PessoaService,
+  TitularService,
+  SexoService,
+];
+
+const modelController = [PessoaController, TitularController, SexoController];
+
 @Module({
-  providers: [
-    ...MedicamentoProviders,
-    ...PessoaProviders,
-    ...atendenteProviders,
-    ...databaseProviders,
-    ...TitularProviders,
-    ...SolicitacaoProviders,
-    ...EstadoSolicitacaoProviders,
-    ...PostoProviders,
-    ...BairroProviders,
-    ...EstadoProviders,
-    ...MunicipioProviders,
-    ...ControleProviders,
-    ...MedicamentoPostoProviders,
-    ...RecebimentoProviders,
-    ...CategoriaProviders,
-    ...LaboratorioProviders,
-    ...RecebimentoMedicamentoProviders,
-    ...LoteProviders,
-    MedicamentoService,
-    AtendenteService,
-    PessoaService,
-    TitularService,
-    SexoService,
-  ],
-  controllers: [PessoaController, TitularController, SexoController],
+  providers: [...modelProvider, ...modelService],
+  controllers: [...modelController],
 })
 export class PooModule {}

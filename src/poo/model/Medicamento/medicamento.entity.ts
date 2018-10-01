@@ -53,18 +53,6 @@ export class Medicamento {
   })
   categoria: Categoria;
 
-  @ManyToMany(type => Solicitacao)
-  @JoinTable({
-    name: 'medicamento_solicitacao',
-    joinColumn: {
-      name: 'idmedicamento',
-    },
-    inverseJoinColumn: {
-      name: 'idsolicitacao',
-    },
-  })
-  solicitacao: Solicitacao;
-
   @OneToMany(
     type => MedicamentoPosto,
     medicamentoPosto => medicamentoPosto.medicamento,
