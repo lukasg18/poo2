@@ -1,10 +1,10 @@
 import { Connection, Repository } from 'typeorm';
-import { RecebimentoMedicamento } from './recebimento-medicamento.entity';
+import { RecebimentoMedicamentoPosto } from './recebimento-medicamento.entity';
 
 export const RecebimentoMedicamentoProviders = [
   {
     provide: 'RecebimentoMedicamentoRepositoryToken',
-    useFactory: (connection: Connection) => connection.getRepository(RecebimentoMedicamento),
+    useFactory: (connection: Connection) => connection.getRepository(RecebimentoMedicamentoPosto),
     inject: ['DbConnectionToken'],
   },
 ];

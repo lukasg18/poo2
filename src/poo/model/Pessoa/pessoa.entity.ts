@@ -1,6 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { Titular } from '../Titular/titular.entity';
-import { Sexo } from '../Sexo/sexo.entity';
 import { Recebimento } from '../Recebimento/recebimento.entity';
 import { PessoaAbs } from '../Abstract/pessoa-abstract.entity';
 import { Depedente } from '../Depedente/depedente.entity';
@@ -12,11 +11,6 @@ export class Pessoa extends PessoaAbs{
   //###################################################################
   //############################ RELAÇÕES #############################
   //###################################################################
-
-
-  @ManyToOne(type => Sexo, sexo => sexo.pessoa)
-  @JoinColumn({name: "idsexo"})
-  sexo: Sexo;
 
   @OneToMany(type => Recebimento, recebimento => recebimento.pessoa)
   recebimento: Recebimento[];

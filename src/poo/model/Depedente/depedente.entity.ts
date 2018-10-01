@@ -1,6 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { Titular } from '../Titular/titular.entity';
-import { Sexo } from '../Sexo/sexo.entity';
 import { Recebimento } from '../Recebimento/recebimento.entity';
 import { PessoaAbs } from '../Abstract/pessoa-abstract.entity';
 import { Pessoa } from '../Pessoa/pessoa.entity';

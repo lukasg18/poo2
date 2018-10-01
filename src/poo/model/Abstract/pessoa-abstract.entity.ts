@@ -16,4 +16,7 @@ export abstract class PessoaAbs{
 
     @Column({ nullable:false })
     rg: number;
+
+    @Column({ nullable:false })
+    sexo: number;
 }

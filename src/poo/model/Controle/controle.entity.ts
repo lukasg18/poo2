@@ -1,6 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { Atendente } from '../Atendente/atendente.entity';
-import { TipoControle } from '../TipoControle/tipo-controle.entity';
 import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
 
 @Entity()
@@ -17,16 +16,16 @@ export class Controle {
   @Column({ nullable:false })
   datahora: Date;
 
+  @Column({ nullable:false })
+  tipocontrole: number;
+
   //###################################################################
   //############################ RELAÇÕES #############################
   //###################################################################
 
-  @OneToMany(type => Atendente, atendente => atendente.controle)
+  @ManyToOne(type => Atendente, atendente => atendente.controle)
+  @JoinColumn({name: "idatendente"})
   atendente: Atendente[];
-
-  @ManyToOne(type => TipoControle, tipoControle => tipoControle.controle)
-  @JoinColumn({name: "idtipocontrole"})
-  tipoControle: TipoControle;
 
   @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.controle)
   @JoinColumn({name: "idmedicamentoposto"})

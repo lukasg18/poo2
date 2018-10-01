@@ -11,10 +11,8 @@ import {
 import { Laboratorio } from '../Laboratorio/laboratorio.entity';
 import { Categoria } from '../Categoria/categoria.entity';
 import { Recebimento } from '../Recebimento/recebimento.entity';
-import { EstadoMedicamento } from '../EstadoMedicamento/estado-medicamento.entity';
 import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
 import { Solicitacao } from '../Solicitacao/solicitacao.entity';
-import { RecebimentoMedicamento } from '../recebimentoMedicamento/recebimento-medicamento.entity';
 
 @Entity()
 export class Medicamento {
@@ -67,23 +65,10 @@ export class Medicamento {
   })
   solicitacao: Solicitacao;
 
-  @ManyToOne(
-    type => EstadoMedicamento,
-    estadoMedicamento => estadoMedicamento.medicamento,
-  )
-  @JoinColumn({ name: 'idestadomedicamento' })
-  estadoMedicamento: EstadoMedicamento;
-
   @OneToMany(
     type => MedicamentoPosto,
     medicamentoPosto => medicamentoPosto.medicamento,
   )
   medicamentoPosto: MedicamentoPosto[];
 
-  @ManyToOne(
-    type => RecebimentoMedicamento,
-    recebimentoMedicamento => recebimentoMedicamento.medicamento,
-  )
-  @JoinColumn({ name: 'idrecebimentomedicamento' })
-  recebimentoMedicamento: RecebimentoMedicamento;
 }
