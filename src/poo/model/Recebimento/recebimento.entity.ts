@@ -12,7 +12,7 @@ export class Recebimento {
   quantidademedicamentos: number;
 
   @Column({ nullable: false })
-  datahora: Date;
+  data_hora: Date;
 
   //###################################################################
   //############################ RELAÇÕES #############################

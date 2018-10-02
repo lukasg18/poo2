@@ -1,14 +1,15 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn, PrimaryColumn } from 'typeorm';
 import { RecebimentoMedicamentoPosto } from '../recebimentoMedicamento/recebimento-medicamento.entity';
 import { Posto } from '../Posto/posto.entity';
-import { Controle } from '../Controle/controle.entity';
 import { PessoaAbs } from '../Abstract/pessoa-abstract.entity';
 import { Pessoa } from '../Pessoa/pessoa.entity';
+import { EntradaMedicamento } from '../EntradaMedicamento/entrada-medicamento.entity';
 
 @Entity()
 export class Atendente{
-  @PrimaryGeneratedColumn()
-  idatendente: number;
+
+  @PrimaryColumn()
+  idpessoa:number;
 
   @Column({ nullable:false })
   numeroregistro: number;
@@ -25,8 +26,8 @@ export class Atendente{
   @JoinColumn({name: "idposto"})
   posto: Posto;
 
-  @OneToMany(type => Controle, controle => controle.atendente)
-  controle: Controle[];
+  @OneToMany(type => EntradaMedicamento, entradaMedicamento => entradaMedicamento.atendente)
+  entradaMedicamento: EntradaMedicamento[];
 
   @ManyToOne(type => Pessoa, pessoa => pessoa.atendente)
   @JoinColumn({name: "idpessoa"})

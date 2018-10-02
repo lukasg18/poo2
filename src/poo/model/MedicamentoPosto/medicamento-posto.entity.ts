@@ -8,9 +8,8 @@ import {
 } from 'typeorm';
 import { Posto } from '../Posto/posto.entity';
 import { Medicamento } from '../Medicamento/medicamento.entity';
-import { Lote } from '../Lote/lote.entity';
-import { Controle } from '../Controle/controle.entity';
 import { RecebimentoMedicamentoPosto } from '../recebimentoMedicamento/recebimento-medicamento.entity';
+import { EntradaMedicamento } from '../EntradaMedicamento/entrada-medicamento.entity';
 
 @Entity()
 export class MedicamentoPosto {
@@ -19,6 +18,12 @@ export class MedicamentoPosto {
 
   @Column({ nullable: false })
   estadomedicamento: number;
+
+  @Column({ nullable: false })
+  quantidade: number;
+
+  @Column({ nullable: false })
+  datavencimento: Date;
 
   //###################################################################
   //############################ RELAÇÕES #############################
@@ -32,12 +37,8 @@ export class MedicamentoPosto {
   @JoinColumn({ name: 'idmedicamento' })
   medicamento: Medicamento;
 
-  @ManyToOne(type => Lote, lote => lote.medicamentoPosto)
-  @JoinColumn({ name: 'idlote' })
-  lote: Lote;
-
-  @OneToMany(type => Controle, controle => controle.medicamentoPosto)
-  controle: Controle[];
+  @OneToMany(type => EntradaMedicamento, entradaMedicamento => entradaMedicamento.medicamentoPosto)
+  entradaMedicamento: EntradaMedicamento[];
 
   @OneToMany(
     type => RecebimentoMedicamentoPosto,

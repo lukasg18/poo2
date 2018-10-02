@@ -3,7 +3,7 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'ty
 export abstract class PessoaAbs{
 
     @PrimaryGeneratedColumn()
-    id: number;
+    idpessoa: number;
   
     @Column({ length: 100 })
     nome: string;
@@ -15,8 +15,9 @@ export abstract class PessoaAbs{
     cpf: string;
 
     @Column({ nullable:false })
-    rg: number;
+    sexo: number;
 
     @Column({ nullable:false })
-    sexo: number;
+    rg: number;
+
 }

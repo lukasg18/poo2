@@ -11,16 +11,16 @@ import { Medicamento } from '../Medicamento/medicamento.entity';
 import { Recebimento } from '../Recebimento/recebimento.entity';
 import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
 
-@Entity()
+@Entity('recebimento_medicamentoposto')
 export class RecebimentoMedicamentoPosto {
   @PrimaryGeneratedColumn()
-  idrecebimentomedicamento: number;
+  idatendente: number;
 
-  @Column({ nullable: false })
-  quantidademedicamentos: number;
+  @PrimaryGeneratedColumn()
+  idrecebimento: number;
 
-  @Column({ nullable: false })
-  datahora: Date;
+  @PrimaryGeneratedColumn()
+  idmedicamentoposto: number;
 
   //###################################################################
   //############################ RELAÇÕES #############################

@@ -9,8 +9,6 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { Laboratorio } from '../Laboratorio/laboratorio.entity';
-import { Categoria } from '../Categoria/categoria.entity';
-import { Recebimento } from '../Recebimento/recebimento.entity';
 import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
 import { Solicitacao } from '../Solicitacao/solicitacao.entity';
 
@@ -40,18 +38,6 @@ export class Medicamento {
     },
   })
   laboratorio: Laboratorio;
-
-  @ManyToMany(type => Categoria)
-  @JoinTable({
-    name: 'medicamento_categoria',
-    joinColumn: {
-      name: 'idmedicamento',
-    },
-    inverseJoinColumn: {
-      name: 'idcategoria',
-    },
-  })
-  categoria: Categoria;
 
   @OneToMany(
     type => MedicamentoPosto,

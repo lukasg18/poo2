@@ -1,33 +1,27 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
-import { Atendente } from '../Atendente/atendente.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn, PrimaryColumn } from 'typeorm';
 import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
+import { Atendente } from '../Atendente/atendente.entity';
 
 @Entity()
-export class Controle {
+export class EntradaMedicamento{
   @PrimaryGeneratedColumn()
-  idcontrole: number;
+  identradamedicamento: number;
 
   @Column({ nullable: false })
   quantidade: number;
 
   @Column({ nullable:false })
-  codigobarras: number;
-
-  @Column({ nullable:false })
-  datahora: Date;
-
-  @Column({ nullable:false })
-  tipocontrole: number;
+  data_hora: Date;
 
   //###################################################################
   //############################ RELAÇÕES #############################
   //###################################################################
 
-  @ManyToOne(type => Atendente, atendente => atendente.controle)
+  @ManyToOne(type => Atendente, atendente => atendente.entradaMedicamento)
   @JoinColumn({name: "idatendente"})
-  atendente: Atendente[];
+  atendente: Atendente;
 
-  @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.controle)
+  @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.entradaMedicamento)
   @JoinColumn({name: "idmedicamentoposto"})
   medicamentoPosto: MedicamentoPosto;
 }

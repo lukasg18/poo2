@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn, Double } from 'typeorm';
 import { Atendente } from '../Atendente/atendente.entity';
 import { Bairro } from '../Bairro/bairro.entity';
 import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
@@ -11,17 +11,23 @@ export class Posto {
   @Column({ length: 200 })
   complemento: string;
 
+  @Column({ length: 200 })
+  nome: string;
+
+  @Column({ length: 200 })
+  rua: string;
+
   @Column({ nullable:false })
   cep: number;
 
   @Column({ nullable:false })
   numero: number;
 
-  @Column({ length: 20 })
-  coordgeolong: string;
+  @Column({ nullable:false, type:"double precision" })
+  coordgeolong: number;
 
-  @Column({ length: 20 })
-  coordgeolat: string;
+  @Column({ nullable:false, type:"double precision" })
+  coordgeolat: number;
 
   //###################################################################
   //############################ RELAÇÕES #############################

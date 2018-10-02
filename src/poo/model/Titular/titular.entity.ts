@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn, PrimaryColumn } from 'typeorm';
 import { Pessoa } from '../Pessoa/pessoa.entity';
 import { Solicitacao } from '../Solicitacao/solicitacao.entity';
 import { Recebimento } from '../Recebimento/recebimento.entity';
@@ -7,8 +7,8 @@ import { PessoaAbs } from '../Abstract/pessoa-abstract.entity';
 
 @Entity()
 export class Titular{
-  @PrimaryGeneratedColumn()
-  idtitular: number;
+  @PrimaryColumn()
+  idpessoa:number;
 
   @Column({ nullable:false })
   numerosus: number;
