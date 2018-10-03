@@ -9,7 +9,6 @@ import {
 } from 'typeorm';
 import { Posto } from './posto.entity';
 import { Medicamento } from './medicamento.entity';
-import { RecebimentoMedicamentoPosto } from './recebimento-medicamento.entity';
 import { EntradaMedicamento } from './entrada-medicamento.entity';
 
 @Entity()
@@ -41,9 +40,4 @@ export class MedicamentoPosto extends BaseEntity{
   @OneToMany(type => EntradaMedicamento, entradaMedicamento => entradaMedicamento.medicamentoPosto)
   entradaMedicamento: EntradaMedicamento[];
 
-  @OneToMany(
-    type => RecebimentoMedicamentoPosto,
-    recebimentoMedicamentoPosto => recebimentoMedicamentoPosto.medicamentoPosto,
-  )
-  recebimentoMedicamentoPosto: RecebimentoMedicamentoPosto[];
 }

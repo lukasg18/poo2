@@ -38,7 +38,7 @@ export class Medicamento extends BaseEntity{
       name: 'idlaboratorio',
     },
   })
-  laboratorio: Laboratorio;
+  laboratorio: Laboratorio[];
 
   @OneToMany(
     type => MedicamentoPosto,

@@ -36,6 +36,6 @@ export class Solicitacao extends BaseEntity{
       name: 'idmedicamentoposto',
     },
   })
-  medicamentoPosto: MedicamentoPosto;
+  medicamentoPosto: MedicamentoPosto[];
 
 }

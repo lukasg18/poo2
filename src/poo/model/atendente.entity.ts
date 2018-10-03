@@ -1,8 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn, PrimaryColumn, BaseEntity } from 'typeorm';
-import { RecebimentoMedicamentoPosto } from './recebimento-medicamento.entity';
 import { Posto } from './posto.entity';
 import { Pessoa } from './pessoa.entity';
 import { EntradaMedicamento } from './entrada-medicamento.entity';
+import { Recebimento } from './recebimento.entity';
 
 @Entity()
 export class Atendente extends BaseEntity{
@@ -18,8 +18,8 @@ export class Atendente extends BaseEntity{
   //###################################################################
 
 
-  @OneToMany(type => RecebimentoMedicamentoPosto, recebimentoMedicamento => recebimentoMedicamento.atedente)
-  recebimentoMedicamento: RecebimentoMedicamentoPosto[];
+  @OneToMany(type => Recebimento, recebimento => recebimento.atendente)
+  recebimento: Recebimento[];
 
   @ManyToOne(type => Posto, posto => posto.atendente)
   @JoinColumn({name: "idposto"})
