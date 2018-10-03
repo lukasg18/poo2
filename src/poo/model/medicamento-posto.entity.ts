@@ -5,14 +5,15 @@ import {
   OneToMany,
   ManyToOne,
   JoinColumn,
+  BaseEntity,
 } from 'typeorm';
-import { Posto } from '../Posto/posto.entity';
-import { Medicamento } from '../Medicamento/medicamento.entity';
-import { RecebimentoMedicamentoPosto } from '../recebimentoMedicamento/recebimento-medicamento.entity';
-import { EntradaMedicamento } from '../EntradaMedicamento/entrada-medicamento.entity';
+import { Posto } from './posto.entity';
+import { Medicamento } from './medicamento.entity';
+import { RecebimentoMedicamentoPosto } from './recebimento-medicamento.entity';
+import { EntradaMedicamento } from './entrada-medicamento.entity';
 
 @Entity()
-export class MedicamentoPosto {
+export class MedicamentoPosto extends BaseEntity{
   @PrimaryGeneratedColumn()
   idmedicamentoposto: number;
 

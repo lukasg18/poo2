@@ -1,12 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn, PrimaryColumn } from 'typeorm';
-import { RecebimentoMedicamentoPosto } from '../recebimentoMedicamento/recebimento-medicamento.entity';
-import { Posto } from '../Posto/posto.entity';
-import { PessoaAbs } from '../Abstract/pessoa-abstract.entity';
-import { Pessoa } from '../Pessoa/pessoa.entity';
-import { EntradaMedicamento } from '../EntradaMedicamento/entrada-medicamento.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn, PrimaryColumn, BaseEntity } from 'typeorm';
+import { RecebimentoMedicamentoPosto } from './recebimento-medicamento.entity';
+import { Posto } from './posto.entity';
+import { Pessoa } from './pessoa.entity';
+import { EntradaMedicamento } from './entrada-medicamento.entity';
 
 @Entity()
-export class Atendente{
+export class Atendente extends BaseEntity{
 
   @PrimaryColumn()
   idpessoa:number;

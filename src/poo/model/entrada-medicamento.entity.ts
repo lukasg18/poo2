@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn, PrimaryColumn } from 'typeorm';
-import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
-import { Atendente } from '../Atendente/atendente.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn, PrimaryColumn, BaseEntity } from 'typeorm';
+import { MedicamentoPosto } from './medicamento-posto.entity';
+import { Atendente } from './atendente.entity';
 
 @Entity()
-export class EntradaMedicamento{
+export class EntradaMedicamento extends BaseEntity{
   @PrimaryGeneratedColumn()
   identradamedicamento: number;
 

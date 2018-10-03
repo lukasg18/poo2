@@ -1,12 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn, PrimaryColumn } from 'typeorm';
-import { Pessoa } from '../Pessoa/pessoa.entity';
-import { Solicitacao } from '../Solicitacao/solicitacao.entity';
-import { Recebimento } from '../Recebimento/recebimento.entity';
-import { Depedente } from '../Depedente/depedente.entity';
-import { PessoaAbs } from '../Abstract/pessoa-abstract.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn, PrimaryColumn, BaseEntity } from 'typeorm';
+import { Pessoa } from './pessoa.entity';
+import { Solicitacao } from './solicitacao.entity';
+import { Depedente } from './depedente.entity';
 
 @Entity()
-export class Titular{
+export class Titular extends BaseEntity{
   @PrimaryColumn()
   idpessoa:number;
 

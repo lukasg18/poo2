@@ -7,13 +7,14 @@ import {
   JoinTable,
   ManyToOne,
   JoinColumn,
+  BaseEntity,
 } from 'typeorm';
-import { Laboratorio } from '../Laboratorio/laboratorio.entity';
-import { MedicamentoPosto } from '../MedicamentoPosto/medicamento-posto.entity';
-import { Solicitacao } from '../Solicitacao/solicitacao.entity';
+import { Laboratorio } from './laboratorio.entity';
+import { MedicamentoPosto } from './medicamento-posto.entity';
+import { Solicitacao } from './solicitacao.entity';
 
 @Entity()
-export class Medicamento {
+export class Medicamento extends BaseEntity{
   @PrimaryGeneratedColumn()
   idmedicamento: number;
 

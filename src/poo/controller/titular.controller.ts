@@ -1,10 +1,11 @@
 import { Get, Controller } from '@nestjs/common';
 import { TitularService } from '../service/titular.service';
+import { Titular } from '../model/titular.entity';
 
 
 @Controller()
 export class TitularController {
-  constructor(private readonly titularService: TitularService) {}
+  constructor(private readonly titularService: TitularService<Titular>) {}
 
   @Get('/titular')
   root():any {

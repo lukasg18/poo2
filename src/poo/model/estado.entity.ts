@@ -1,8 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { Municipio } from '../Municipio/municipio.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, BaseEntity } from 'typeorm';
+import { Municipio } from './municipio.entity';
 
 @Entity()
-export class Estado {
+export class Estado extends BaseEntity{
   @PrimaryGeneratedColumn()
   idestado: number;
 

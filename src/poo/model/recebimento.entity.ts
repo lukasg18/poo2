@@ -1,10 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
-import { Pessoa } from '../Pessoa/pessoa.entity';
-import { RecebimentoMedicamentoPosto } from '../recebimentoMedicamento/recebimento-medicamento.entity';
-import { Titular } from '../Titular/titular.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn, BaseEntity } from 'typeorm';
+import { Pessoa } from './pessoa.entity';
+import { RecebimentoMedicamentoPosto } from './recebimento-medicamento.entity';
+import { Titular } from './titular.entity';
 
 @Entity()
-export class Recebimento {
+export class Recebimento extends BaseEntity{
   @PrimaryGeneratedColumn()
   idrecebimento: number;
 
