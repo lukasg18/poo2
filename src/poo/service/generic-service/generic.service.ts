@@ -1,41 +1,37 @@
-// import { Injectable, Inject } from '@nestjs/common';
-// import { Repository } from 'typeorm';
+import { Injectable, Inject } from '@nestjs/common';
+import {
+  Repository,
+  ObjectLiteral,
+  DeepPartial,
+  getCustomRepository,
+  getManager,
+} from 'typeorm';
+import { genericInterface } from './generic.interface';
+import { Titular } from '../../model/titular.entity';
+import { Pessoa } from '../../model/pessoa.entity';
 
-// @Injectable()
-// export class genericService<T> implements genericService<T> {
-//   constructor(
-//     @Inject('SexoRepositoryToken')
-//     private readonly SexoRepository: Repository<T>,
-//   ) {}
+@Injectable()
+export class genericService<T> {
 
-//   async findAll() {
-//     return await this.SexoRepository.find();
-//   }
+  async readAll() {
+    let z = new Titular();
+    let x = getManager();
+    return await x.find(Titular);
+  }
 
-//   async findOne(id) {
-//     return await this.SexoRepository.findOne(id);
-//   }
+  async readOne(partialEntity: DeepPartial<T>) {
+    return 'teste';
+  }
 
-//   async Create(body) {
-//     let s = new Sexo();
-//     s.tipo = body.tipo;
-//     return await this.SexoRepository.save(s);
-//   }
+  async Create(body) {
+    return 'teste';
+  }
 
-//   async Remove(body) {
-//     let s = new Sexo();
-//     let busca;
-//     s.tipo = body.tipo;
-//     busca = await this.SexoRepository.findOne({ tipo: s.tipo });
-//     return await this.SexoRepository.remove(busca);
-//   }
+  async Drop(body) {
+    return 'teste';
+  }
 
-//   async Update(body) {
-//     let s = new Sexo();
-//     s.idsexo = body.idsexo;
-//     let busca = await this.SexoRepository.findOne({ idsexo: s.idsexo });
-//     busca.tipo = body.tipo;
-//     return await this.SexoRepository.save(busca);
-//   }
-
-// }
+  async Update(body) {
+    return 'teste';
+  }
+}

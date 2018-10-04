@@ -1,11 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { Repository } from 'typeorm';
 import { Titular } from '../model/titular.entity';
+import { genericService } from './generic-service/generic.service';
 
 @Injectable()
-export class TitularService<titular> {
-
-  async findAll(): Promise<Titular[]> {
-    return await Titular.find();
-  }
+export class TitularService extends genericService<Titular>{
+  
 }

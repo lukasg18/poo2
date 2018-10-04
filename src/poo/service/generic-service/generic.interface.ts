@@ -1,14 +1,13 @@
-
 export interface genericInterface<T> {
-    
-  readAll(): Promise<T>;
+  
+  readAll();
 
-  readOne(id): Promise<T>;
+  readOne(id);
 
-  Create(body): Promise<T>;
+  Create(body);
 
-  Drop(body): Promise<T>;
+  Drop(body);
 
-  Update(body): Promise<T>;
+  Update(body);
 
 }
