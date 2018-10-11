@@ -3,7 +3,7 @@ import { Pessoa } from './pessoa.entity';
 import { Solicitacao } from './solicitacao.entity';
 import { Depedente } from './depedente.entity';
 
-@Entity('Titular')
+@Entity()
 export class Titular extends BaseEntity{
   @PrimaryColumn()
   idpessoa:number;
