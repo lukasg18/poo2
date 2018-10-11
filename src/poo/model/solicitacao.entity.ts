@@ -33,16 +33,8 @@ export class Solicitacao extends BaseEntity{
   @JoinColumn({name: "idtitular"})   
   titular: Titular
 
-  @ManyToMany(type => MedicamentoPosto)
-  @JoinTable({
-    name: 'solicitacao_medicamentoposto',
-    joinColumn: {
-      name: 'idsolicitacao',
-    },
-    inverseJoinColumn: {
-      name: 'idmedicamentoposto',
-    },
-  })
-  medicamentoPosto: MedicamentoPosto[];
+  @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.solicitacao)
+  @JoinColumn({name: "idmedicamentoposto"})   
+  medicamentoPosto: MedicamentoPosto;
 
 }

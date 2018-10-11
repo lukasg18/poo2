@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 import { Posto } from './posto.entity';
 import { Pessoa } from './pessoa.entity';
-import { EntradaMedicamento } from './entrada-medicamento.entity';
+import { RegistroMedicamento } from './registro-medicamento.entity';
 import { Recebimento } from './recebimento.entity';
 
 @Entity()
@@ -33,10 +33,10 @@ export class Atendente extends BaseEntity {
   posto: Posto;
 
   @OneToMany(
-    type => EntradaMedicamento,
-    entradaMedicamento => entradaMedicamento.atendente,
+    type => RegistroMedicamento,
+    registroMedicamento => registroMedicamento.atendente,
   )
-  entradaMedicamento: EntradaMedicamento[];
+  registroMedicamento: RegistroMedicamento[];
 
   @ManyToOne(type => Pessoa, pessoa => pessoa.atendente)
   @JoinColumn({ name: 'idpessoa' })

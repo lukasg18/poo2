@@ -3,9 +3,9 @@ import { MedicamentoPosto } from './medicamento-posto.entity';
 import { Atendente } from './atendente.entity';
 
 @Entity()
-export class EntradaMedicamento extends BaseEntity{
+export class RegistroMedicamento extends BaseEntity{
   @PrimaryGeneratedColumn()
-  identradamedicamento: number;
+  idregistromedicamento: number;
 
   @Column({ nullable: false })
   quantidade: number;
@@ -17,11 +17,11 @@ export class EntradaMedicamento extends BaseEntity{
   //############################ RELAÇÕES #############################
   //###################################################################
 
-  @ManyToOne(type => Atendente, atendente => atendente.entradaMedicamento)
+  @ManyToOne(type => Atendente, atendente => atendente.registroMedicamento)
   @JoinColumn({name: "idatendente"})
   atendente: Atendente;
 
-  @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.entradaMedicamento)
+  @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.registroMedicamento)
   @JoinColumn({name: "idmedicamentoposto"})
   medicamentoPosto: MedicamentoPosto;
 }

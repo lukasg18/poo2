@@ -9,7 +9,9 @@ import {
 } from 'typeorm';
 import { Posto } from './posto.entity';
 import { Medicamento } from './medicamento.entity';
-import { EntradaMedicamento } from './entrada-medicamento.entity';
+import { RegistroMedicamento } from './registro-medicamento.entity';
+import { Recebimento } from './recebimento.entity';
+import { Solicitacao } from './solicitacao.entity';
 
 export enum EstadoMedicamentoEnum {
   Indisponivel = 0,
@@ -42,7 +44,12 @@ export class MedicamentoPosto extends BaseEntity{
   @JoinColumn({ name: 'idmedicamento' })
   medicamento: Medicamento;
 
-  @OneToMany(type => EntradaMedicamento, entradaMedicamento => entradaMedicamento.medicamentoPosto)
-  entradaMedicamento: EntradaMedicamento[];
+  @OneToMany(type => RegistroMedicamento, registroMedicamento => registroMedicamento.medicamentoPosto)
+  registroMedicamento: RegistroMedicamento[];
 
+  @OneToMany(type => Recebimento, recebimento => recebimento.medicamentoPosto)
+  recebimento: Recebimento[];
+
+  @OneToMany(type => Solicitacao, solicitacao => solicitacao.medicamentoPosto)
+  solicitacao: Solicitacao[];
 }

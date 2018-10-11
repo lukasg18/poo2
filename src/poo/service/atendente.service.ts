@@ -5,7 +5,7 @@ import { Atendente } from '../model/atendente.entity';
 @Injectable()
 export class AtendenteService {
 
-  async findAll(): Promise<Atendente[]> {
+  async buscaTodosAtendentes(): Promise<Atendente[]> {
     return await Atendente.find();
   }
 }

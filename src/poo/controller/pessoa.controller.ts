@@ -1,4 +1,4 @@
-import { Get, Controller } from '@nestjs/common';
+import { Get, Controller, Param } from '@nestjs/common';
 import { PessoaService } from '../service/pessoa.service';
 
 
@@ -9,5 +9,10 @@ export class PessoaController {
   @Get('/pessoa')
   root():any {
     return this.pessoaService.findAll();
+  }
+
+  @Get('/pessoa/:cpf')
+  pegaUm(@Param() cpf) {
+    return this.pessoaService.buscaCpf(cpf.cpf);
   }
 }
