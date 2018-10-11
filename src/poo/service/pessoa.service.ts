@@ -13,4 +13,9 @@ export class PessoaService {
     console.log(cpf)
     return await Pessoa.findOne({cpf:cpf});
   }
+
+  async Create(body) {
+    let p = new Pessoa();
+    return await Pessoa.save(p);
+  }
 }
