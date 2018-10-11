@@ -11,13 +11,18 @@ import { Posto } from './posto.entity';
 import { Medicamento } from './medicamento.entity';
 import { EntradaMedicamento } from './entrada-medicamento.entity';
 
+export enum EstadoMedicamentoEnum {
+  Indisponivel = 0,
+  Disponivel = 1,
+} 
+
 @Entity()
 export class MedicamentoPosto extends BaseEntity{
   @PrimaryGeneratedColumn()
   idmedicamentoposto: number;
 
   @Column({ nullable: false })
-  estadomedicamento: number;
+  estadomedicamento: EstadoMedicamentoEnum;
 
   @Column({ nullable: false })
   quantidade: number;

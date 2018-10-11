@@ -4,6 +4,11 @@ import { Recebimento } from './recebimento.entity';
 import { Depedente } from './depedente.entity';
 import { Atendente } from './atendente.entity';
 
+export enum SexoEnum {
+  Masculino = 0,
+  Feminino = 1,
+} 
+
 @Entity()
 export class Pessoa extends BaseEntity{
 
@@ -16,14 +21,14 @@ export class Pessoa extends BaseEntity{
     @Column({ nullable:false })
     datanascimento: Date;
   
-    @Column({ nullable:false, length:12 })
+    @Column({ nullable:false, length:12, unique:true })
     cpf: string;
 
     @Column({ nullable:false })
-    sexo: number;
+    sexo: SexoEnum;
 
-    @Column({ nullable:false })
-    rg: number;
+    @Column({ nullable:false, length: 10, unique:true })
+    rg: string;
 
   //###################################################################
   //############################ RELAÇÕES #############################

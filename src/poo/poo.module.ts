@@ -8,7 +8,6 @@ import { TitularService } from './service/titular.service';
 import { TitularController } from './controller/titular.controller';
 import { SexoService } from './service/sexo.service';
 import { SexoController } from './controller/sexo.controller';
-import { genericService } from './service/generic-service/generic.service';
 
 const modelProvider = [...databaseProviders];
 
@@ -18,7 +17,6 @@ const modelService = [
   PessoaService,
   TitularService,
   SexoService,
-  genericService,
 ];
 
 const modelController = [PessoaController, TitularController, SexoController];

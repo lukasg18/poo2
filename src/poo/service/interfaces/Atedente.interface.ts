@@ -1,4 +1,4 @@
-export interface genericInterface<T> {
+export interface atendenteInterface {
   
   readAll();
 
