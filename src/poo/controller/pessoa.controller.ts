@@ -14,7 +14,7 @@ export class PessoaController {
 
   @Post('/pessoa')
   public createOne(@Body() body: Pessoa) {
-    return this.pessoaService.Create(body);
+    return body;
   }
 
   @Get('/pessoa/:cpf')
