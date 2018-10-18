@@ -24,7 +24,7 @@ export class Recebimento extends BaseEntity{
   pessoa: Pessoa;
 
   @ManyToOne(type => Atendente, atendente => atendente.recebimento)
-  @JoinColumn({name: "idatedente"})
+  @JoinColumn({name: "idatendente"})
   atendente: Atendente;
 
   @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.recebimento)
