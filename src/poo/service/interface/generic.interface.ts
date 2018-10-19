@@ -1,9 +1,9 @@
 
 export interface genericInterface<T> {
     
-  readAll(): Promise<T>;
+  readAll(): Promise<T[]>;
 
-  readOne(id): Promise<T>;
+  readOne(id: number): Promise<T>;
 
   Create(body): Promise<T>;
 
