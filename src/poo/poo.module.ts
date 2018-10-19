@@ -8,6 +8,7 @@ import { TitularService } from './service/titular.service';
 import { TitularController } from './controller/titular.controller';
 import { SexoService } from './service/sexo.service';
 import { SexoController } from './controller/sexo.controller';
+import { AtendenteController } from './controller/atendente.controller';
 
 const modelProvider = [...databaseProviders];
 
@@ -19,7 +20,7 @@ const modelService = [
   SexoService,
 ];
 
-const modelController = [PessoaController, TitularController, SexoController];
+const modelController = [PessoaController, TitularController, SexoController, AtendenteController];
 
 @Module({
   providers: [...modelProvider, ...modelService],

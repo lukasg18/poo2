@@ -3,6 +3,6 @@ import { Atendente } from "../../model/atendente.entity";
 
 export interface IAtendente extends genericInterface<Atendente> {
     
-  buscaCpf(cpf);
+  buscaRegistro(cpf);
 
 }

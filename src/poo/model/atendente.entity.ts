@@ -1,34 +1,44 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn, PrimaryColumn, BaseEntity } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToMany,
+  JoinColumn,
+  PrimaryColumn,
+  BaseEntity,
+} from 'typeorm';
 import { Posto } from './posto.entity';
 import { Pessoa } from './pessoa.entity';
-import { EntradaMedicamento } from './entrada-medicamento.entity';
+import { RegistroMedicamento } from './registro-medicamento.entity';
 import { Recebimento } from './recebimento.entity';
 
 @Entity()
-export class Atendente extends BaseEntity{
-
+export class Atendente extends BaseEntity {
   @PrimaryColumn()
-  idpessoa:number;
+  idpessoa: number;
 
-  @Column({ nullable:false })
-  numeroregistro: number;
+  @Column({ nullable: false, length: 10, unique: true })
+  numeroregistro: string;
 
   //###################################################################
   //############################ RELAÇÕES #############################
   //###################################################################
 
-
   @OneToMany(type => Recebimento, recebimento => recebimento.atendente)
   recebimento: Recebimento[];
 
   @ManyToOne(type => Posto, posto => posto.atendente)
-  @JoinColumn({name: "idposto"})
+  @JoinColumn({ name: 'idposto' })
   posto: Posto;
 
-  @OneToMany(type => EntradaMedicamento, entradaMedicamento => entradaMedicamento.atendente)
-  entradaMedicamento: EntradaMedicamento[];
+  @OneToMany(
+    type => RegistroMedicamento,
+    registroMedicamento => registroMedicamento.atendente,
+  )
+  registroMedicamento: RegistroMedicamento[];
 
   @ManyToOne(type => Pessoa, pessoa => pessoa.atendente)
-  @JoinColumn({name: "idpessoa"})
+  @JoinColumn({ name: 'idpessoa' })
   pessoa: Pessoa;
 }

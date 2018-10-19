@@ -4,26 +4,16 @@ import { IAtendente } from './interface/atendente.interface';
 
 @Injectable()
 export class AtendenteService implements IAtendente {
-  buscaCpf(cpf: any) {
-    throw new Error('Method not implemented.');
+  buscaRegistro(numeroregistro): Promise<Atendente | any> {
+    return Atendente.findOne({numeroregistro: numeroregistro});
   }
 
   async readAll(): Promise<Atendente[] | any> {
-    let resposta = await Atendente.find();
-    if(resposta == []){
-        return "ERROR"
-    } else{
-      return resposta
-    }
+    return Atendente.find();
   }
 
   async readOne(id: number): Promise<Atendente | any> {
-    let resposta = await Atendente.findOne({idpessoa: 100});
-    if(resposta){
-        return "ERROR"
-    } else{
-      return resposta
-    }
+    return Atendente.findOne({idpessoa: id});
   }
 
   async Create(body: any): Promise<Atendente> {

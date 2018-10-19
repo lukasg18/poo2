@@ -24,18 +24,10 @@ export class Recebimento extends BaseEntity{
   pessoa: Pessoa;
 
   @ManyToOne(type => Atendente, atendente => atendente.recebimento)
-  @JoinColumn({name: "idatedente"})
+  @JoinColumn({name: "idatendente"})
   atendente: Atendente;
 
-  @ManyToMany(type => MedicamentoPosto)
-  @JoinTable({
-    name: 'recebimento_medicamentoposto',
-    joinColumn: {
-      name: 'idrecebimento',
-    },
-    inverseJoinColumn: {
-      name: 'idmedicamentoposto',
-    },
-  })
-  medicamentoPosto: MedicamentoPosto[];
+  @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.recebimento)
+  @JoinColumn({name: "idmedicamentoposto"})
+  medicamentoPosto: MedicamentoPosto;
 }

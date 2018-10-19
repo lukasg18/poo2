@@ -5,10 +5,10 @@ import { Titular } from '../model/titular.entity';
 
 @Controller()
 export class TitularController {
-  constructor(private readonly titularService: TitularService<Titular>) {}
+  constructor(private readonly titularService: TitularService) {}
 
   @Get('/titular')
   root():any {
-    return this.titularService.findAll();
+    return this.titularService.readAll();
   }
 }
