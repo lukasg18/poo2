@@ -38,7 +38,9 @@ export class Atendente extends BaseEntity {
   )
   registroMedicamento: RegistroMedicamento[];
 
-  @ManyToOne(type => Pessoa, pessoa => pessoa.atendente)
+  @ManyToOne(type => Pessoa, pessoa => pessoa.atendente, {
+    eager: true,
+  })
   @JoinColumn({ name: 'idpessoa' })
   pessoa: Pessoa;
 }
