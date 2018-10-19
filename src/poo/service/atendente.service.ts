@@ -5,7 +5,7 @@ import { IAtendente } from './interface/atendente.interface';
 @Injectable()
 export class AtendenteService implements IAtendente {
   buscaRegistro(numeroregistro): Promise<Atendente | any> {
-    return Atendente.findOne({numeroregistro: numeroregistro});
+    return Atendente.findOne({ numeroregistro: numeroregistro });
   }
 
   async readAll(): Promise<Atendente[] | any> {
@@ -13,13 +13,24 @@ export class AtendenteService implements IAtendente {
   }
 
   async readOne(id: number): Promise<Atendente | any> {
-    return Atendente.findOne({idpessoa: id});
+    return Atendente.findOne({ idpessoa: id });
   }
 
   async Create(body: any): Promise<Atendente> {
     let atendente = new Atendente();
-    atendente.numeroregistro = body.numeroregistro;
-    return await Atendente.save(atendente);
+    try {
+      atendente.numeroregistro = body.numeroregistro;
+      atendente.idpessoa = body.idpessoa;
+      atendente.posto = body.idposto;
+      return await Atendente.save(atendente);
+      
+    } catch (err) {
+      throw new Error(
+        `Erro ao salvar atedente\n Erro: ${err.name}\n Mensagem: ${
+          err.message
+        }\n Os parametros estao certos?`,
+      );
+    }
   }
 
   async Drop(body: any): Promise<Atendente> {
