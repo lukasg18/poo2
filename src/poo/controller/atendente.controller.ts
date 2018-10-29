@@ -72,5 +72,21 @@ export class AtendenteController {
     }
   }
 
+  @Post('/atendente/validar')
+  async valida(@Res() res, @Body() body) {
+    try {
+      let atendente =  await this.atendenteService.ValidaUser(body)
+      if (atendente != undefined) {
+        res.status(HttpStatus.OK).send(atendente);
+      } else {
+        res
+          .status(HttpStatus.NOT_FOUND)
+          .send('Nenhum atendente encontrado na busca');
+      }
+    } catch (err) {
+      res.status(HttpStatus.BAD_GATEWAY).send(err.message);
+    }
+  }
+
   
 }
