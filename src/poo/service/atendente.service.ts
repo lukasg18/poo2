@@ -67,22 +67,22 @@ export class AtendenteService implements IAtendente {
   }
 
   async Drop(body: any): Promise<Atendente> {
-    // let atedente = new Atendente();
-    // let busca;
-    // atedente.numeroregistro = body.numeroregistro;
-    // try {
-    //   busca = await Atendente.findOne({
-    //     numeroregistro: atedente.numeroregistro,
-    //   });
-    //   return await Atendente.remove(busca);
-    // } catch (err) {
-    //   throw new Error(
-    //     `Erro ao salvar atedente\n Erro: ${err.name}\n Mensagem: ${
-    //       err.message
-    //     }\n Os parametros estao certos?`,
-    //   );
-    // }
-    throw new Error('Method not implemented.');
+    let atedente = new Atendente();
+    let busca;
+    atedente.numeroregistro = body.numeroregistro;
+    try {
+      busca = await Atendente.findOne({
+        numeroregistro: atedente.numeroregistro,
+      });
+      return await Atendente.remove(busca);
+    } catch (err) {
+      throw new Error(
+        `Erro ao salvar atedente\n Erro: ${err.name}\n Mensagem: ${
+          err.message
+        }\n Os parametros estao certos?`,
+      );
+    }
+    // throw new Error('Method not implemented.');
   }
 
   async Update(body: any): Promise<Atendente> {

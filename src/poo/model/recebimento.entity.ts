@@ -23,7 +23,7 @@ export class Recebimento extends BaseEntity{
   @JoinColumn({name: "idpessoa"})
   pessoa: Pessoa;
 
-  @ManyToOne(type => Atendente, atendente => atendente.recebimento)
+  @ManyToOne(type => Atendente, atendente => atendente.recebimento, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({name: "idatendente"})
   atendente: Atendente;
 

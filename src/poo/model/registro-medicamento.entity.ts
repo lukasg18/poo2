@@ -17,7 +17,7 @@ export class RegistroMedicamento extends BaseEntity{
   //############################ RELAÇÕES #############################
   //###################################################################
 
-  @ManyToOne(type => Atendente, atendente => atendente.registroMedicamento)
+  @ManyToOne(type => Atendente, atendente => atendente.registroMedicamento, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({name: "idatendente"})
   atendente: Atendente;
 
