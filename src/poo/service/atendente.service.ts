@@ -67,24 +67,42 @@ export class AtendenteService implements IAtendente {
   }
 
   async Drop(body: any): Promise<Atendente> {
-    let atedente = new Atendente();
-    let busca;
-    atedente.numeroregistro = body.numeroregistro;
-    try {
-      busca = await Atendente.findOne({
-        numeroregistro: atedente.numeroregistro,
-      });
-      return await Atendente.remove(busca);
-    } catch (err) {
-      throw new Error(
-        `Erro ao salvar atedente\n Erro: ${err.name}\n Mensagem: ${
-          err.message
-        }\n Os parametros estao certos?`,
-      );
-    }
+    // let atedente = new Atendente();
+    // let busca;
+    // atedente.numeroregistro = body.numeroregistro;
+    // try {
+    //   busca = await Atendente.findOne({
+    //     numeroregistro: atedente.numeroregistro,
+    //   });
+    //   return await Atendente.remove(busca);
+    // } catch (err) {
+    //   throw new Error(
+    //     `Erro ao salvar atedente\n Erro: ${err.name}\n Mensagem: ${
+    //       err.message
+    //     }\n Os parametros estao certos?`,
+    //   );
+    // }
+    throw new Error('Method not implemented.');
   }
 
   async Update(body: any): Promise<Atendente> {
-    throw new Error('Method not implemented.');
+  //   let atendente = new Atendente();
+  //   try {
+  //     let busca = await Atendente.findOne({ numeroregistro: body.numeroregistro });
+  //     busca.numeroregistro = body
+  //     return await Atendente.save(atendente);
+  //     // let s = new Sexo();
+  // //   s.idsexo = body.idsexo;
+  // //   let busca = await this.SexoRepository.findOne({ idsexo: s.idsexo });
+  // //   busca.tipo = body.tipo;
+  // //   return await this.SexoRepository.save(busca);
+  //   } catch (err) {
+  //     throw new Error(
+  //       `Erro ao salvar atedente\n Erro: ${err.name}\n Mensagem: ${
+  //         err.message
+  //       }\n Os parametros estao certos?`,
+  //     );
+  //   }
+  throw new Error('Method not implemented.');
   }
 }

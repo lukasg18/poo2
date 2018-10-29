@@ -1,4 +1,12 @@
-import { Get, Controller, Res, HttpStatus, Param, Post, Body } from '@nestjs/common';
+import {
+  Get,
+  Controller,
+  Res,
+  HttpStatus,
+  Param,
+  Post,
+  Body,
+} from '@nestjs/common';
 import { AtendenteService } from '../service/atendente.service';
 import { Atendente } from '../model/atendente.entity';
 
@@ -6,11 +14,12 @@ import { Atendente } from '../model/atendente.entity';
 export class AtendenteController {
   constructor(private readonly atendenteService: AtendenteService) {}
 
-
   @Get('/atendente/registro/:registro')
   async buscaCPF(@Res() res, @Param() numeroregistro) {
     try {
-      let atendente:Atendente[] = await this.atendenteService.buscaRegistro(numeroregistro.registro);
+      let atendente: Atendente[] = await this.atendenteService.buscaRegistro(
+        numeroregistro.registro,
+      );
       if (atendente != undefined) {
         res.status(HttpStatus.OK).send(atendente);
       } else {
@@ -39,7 +48,6 @@ export class AtendenteController {
     }
   }
 
-
   @Get('/atendente')
   async readAll(@Res() res) {
     try {
@@ -59,7 +67,7 @@ export class AtendenteController {
   @Post('/atendente')
   async Create(@Res() res, @Body() body) {
     try {
-      let atendente =  await this.atendenteService.Create(body)
+      let atendente = await this.atendenteService.Create(body);
       if (atendente != undefined) {
         res.status(HttpStatus.OK).send(atendente);
       } else {
@@ -74,8 +82,8 @@ export class AtendenteController {
 
   @Post('/atendente/validar')
   async valida(@Res() res, @Body() body) {
-   
-      let atendente =  await this.atendenteService.ValidaUser(body)
+    try {
+      let atendente = await this.atendenteService.ValidaUser(body);
       if (atendente != undefined) {
         res.status(HttpStatus.OK).send(atendente);
       } else {
@@ -83,7 +91,8 @@ export class AtendenteController {
           .status(HttpStatus.NOT_FOUND)
           .send('Nenhum atendente encontrado na busca');
       }
+    } catch (err) {
+      res.status(HttpStatus.BAD_GATEWAY).send(err.message);
+    }
   }
-
-  
 }
