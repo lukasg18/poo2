@@ -29,11 +29,11 @@ export class Solicitacao extends BaseEntity{
   //###################################################################
   
 
-  @ManyToOne(type => Titular, titular => titular.solicitacao)
+  @ManyToOne(type => Titular, titular => titular.solicitacao, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({name: "idtitular"})   
   titular: Titular
 
-  @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.solicitacao)
+  @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.solicitacao, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({name: "idmedicamentoposto"})   
   medicamentoPosto: MedicamentoPosto;
 

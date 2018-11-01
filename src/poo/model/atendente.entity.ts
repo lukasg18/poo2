@@ -28,7 +28,7 @@ export class Atendente extends BaseEntity {
   @OneToMany(type => Recebimento, recebimento => recebimento.atendente)
   recebimento: Recebimento[];
 
-  @ManyToOne(type => Posto, posto => posto.atendente)
+  @ManyToOne(type => Posto, posto => posto.atendente, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({ name: 'idposto' })
   posto: Posto;
 
@@ -39,7 +39,7 @@ export class Atendente extends BaseEntity {
   registroMedicamento: RegistroMedicamento[];
 
   @ManyToOne(type => Pessoa, pessoa => pessoa.atendente, {
-    eager: true,
+    eager: true, cascade: true, onDelete: "CASCADE"
   })
   @JoinColumn({ name: 'idpessoa' })
   pessoa: Pessoa;

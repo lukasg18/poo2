@@ -36,11 +36,11 @@ export class MedicamentoPosto extends BaseEntity{
   //############################ RELAÇÕES #############################
   //###################################################################
 
-  @ManyToOne(type => Posto, posto => posto.medicamentoPosto)
+  @ManyToOne(type => Posto, posto => posto.medicamentoPosto, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({ name: 'idposto' })
   posto: Posto;
 
-  @ManyToOne(type => Medicamento, medicamento => medicamento.medicamentoPosto)
+  @ManyToOne(type => Medicamento, medicamento => medicamento.medicamentoPosto, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({ name: 'idmedicamento' })
   medicamento: Medicamento;
 

@@ -12,11 +12,11 @@ export class Depedente extends BaseEntity{
   //############################ RELAÇÕES #############################
   //###################################################################
 
-  @ManyToOne(type => Titular, titular => titular.depedente)
+  @ManyToOne(type => Titular, titular => titular.depedente, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({name: "idtitular"})
   titular: Titular;
 
-  @ManyToOne(type => Pessoa, pessoa => pessoa.depedente)
+  @ManyToOne(type => Pessoa, pessoa => pessoa.depedente, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({name: "idpessoa"})
   pessoa: Pessoa;
 

@@ -14,7 +14,7 @@ export class Municipio extends BaseEntity{
   //############################ RELAÇÕES #############################
   //###################################################################
 
-  @ManyToOne(type => Estado, estado => estado.municipio)
+  @ManyToOne(type => Estado, estado => estado.municipio, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({name: "idestado"})
   estado: Estado;
 

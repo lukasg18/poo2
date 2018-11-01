@@ -19,7 +19,7 @@ export class Recebimento extends BaseEntity{
   //###################################################################
 
 
-  @ManyToOne(type => Pessoa, pessoa => pessoa.recebimento)
+  @ManyToOne(type => Pessoa, pessoa => pessoa.recebimento, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({name: "idpessoa"})
   pessoa: Pessoa;
 
@@ -27,7 +27,7 @@ export class Recebimento extends BaseEntity{
   @JoinColumn({name: "idatendente"})
   atendente: Atendente;
 
-  @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.recebimento)
+  @ManyToOne(type => MedicamentoPosto, medicamentoPosto => medicamentoPosto.recebimento, {cascade: true, onDelete: "CASCADE"})
   @JoinColumn({name: "idmedicamentoposto"})
   medicamentoPosto: MedicamentoPosto;
 }
