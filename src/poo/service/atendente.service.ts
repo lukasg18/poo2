@@ -7,31 +7,24 @@ import { Pessoa } from '../model/pessoa.entity';
 export class AtendenteService implements IAtendente {
   async ValidaUser(body: any) {
     let atendente = new Atendente();
-    let pessoa = new Pessoa();
     let buscaPessoa;
+    let buscaAtendente;
     try {
       atendente.numeroregistro = body.numeroregistro;
-      pessoa.rg = body.rg
-      let buscaAtendente = await Atendente.findOne({numeroregistro: atendente.numeroregistro});
-      buscaPessoa = buscaAtendente.pessoa
-      console.log(buscaAtendente)
-      console.log(buscaPessoa.rg)
-      console.log(pessoa.rg)
-      if((buscaAtendente == undefined) &&  (parseInt(buscaPessoa.rg) == parseInt(pessoa.rg))) {
-        return {"numeroregistro": false, "rg": true}
-      }
-      if((buscaAtendente != undefined) &&  (parseInt(buscaPessoa.rg) != parseInt(pessoa.rg))) {
-        return {"numeroregistro": true, "rg": false}
-      }
-      if((buscaAtendente != undefined) &&  (parseInt(buscaPessoa.rg) == parseInt(pessoa.rg))) {
-        return {"numeroregistro": true, "rg": true}
-      }
-      if((buscaAtendente == undefined) &&  (parseInt(buscaPessoa.rg) != parseInt(pessoa.rg))) {
-        return {"numeroregistro": false, "rg": false}
+      buscaAtendente = await Atendente.findOne({numeroregistro: atendente.numeroregistro});
+      if(buscaAtendente == undefined){
+        return {"numeroregistro": false, "rg": false};
+      }else{
+        buscaPessoa = buscaAtendente.pessoa;
+        if(buscaPessoa.rg == body.rg){
+          return {"numeroregistro": true, "rg": true};
+        }else{
+          return {"numeroregistro": true, "rg": false};
+        }
       }
     } catch (err) {
       throw new Error(
-        `Erro ao salvar atedente\n Erro: ${err.name}\n Mensagem: ${
+        `Erro ao verificar atedente\n Erro: ${err.name}\n Mensagem: ${
           err.message
         }\n Os parametros estao certos?`,
       );
