@@ -36,7 +36,7 @@ export class Posto extends BaseEntity{
   @OneToMany(type => Atendente, atendente => atendente.posto)
   atendente: Atendente[];
 
-  @ManyToOne(type => Bairro, bairro => bairro.posto)
+  @ManyToOne(type => Bairro, bairro => bairro.posto, {cascade:true, onDelete:"CASCADE"})
   @JoinColumn({name: "idbairro"})
   bairro: Bairro;
 

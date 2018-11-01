@@ -14,7 +14,9 @@ export class Bairro extends BaseEntity{
   //############################ RELAÇÕES #############################
   //###################################################################
 
-  @ManyToOne(type => Municipio, municipio => municipio.bairro)
+  @ManyToOne(type => Municipio, municipio => municipio.bairro, {
+    eager: true,
+  })
   @JoinColumn({name: "idmunicipio"})
   municipio: Municipio;
 
