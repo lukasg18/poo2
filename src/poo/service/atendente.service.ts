@@ -82,27 +82,20 @@ export class AtendenteService implements IAtendente {
         }\n Os parametros estao certos?`,
       );
     }
-    // throw new Error('Method not implemented.');
   }
 
   async Update(body: any): Promise<Atendente> {
-  //   let atendente = new Atendente();
-  //   try {
-  //     let busca = await Atendente.findOne({ numeroregistro: body.numeroregistro });
-  //     busca.numeroregistro = body
-  //     return await Atendente.save(atendente);
-  //     // let s = new Sexo();
-  // //   s.idsexo = body.idsexo;
-  // //   let busca = await this.SexoRepository.findOne({ idsexo: s.idsexo });
-  // //   busca.tipo = body.tipo;
-  // //   return await this.SexoRepository.save(busca);
-  //   } catch (err) {
-  //     throw new Error(
-  //       `Erro ao salvar atedente\n Erro: ${err.name}\n Mensagem: ${
-  //         err.message
-  //       }\n Os parametros estao certos?`,
-  //     );
-  //   }
-  throw new Error('Method not implemented.');
+    let busca;
+    try {
+      let busca = await Atendente.findOne({ numeroregistro: body.antigoregistro });
+      busca.numeroregistro = body.novoregistro
+      return await Atendente.save(busca);
+    } catch (err) {
+      throw new Error(
+        `Erro ao salvar atedente\n Erro: ${err.name}\n Mensagem: ${
+          err.message
+        }\n Os parametros estao certos?`,
+      );
+    }
   }
 }
