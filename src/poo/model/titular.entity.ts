@@ -18,10 +18,10 @@ export class Titular extends BaseEntity{
   @OneToMany(type => Depedente, depedente => depedente.titular, { eager:true })
   depedente: Depedente[];
 
-  @OneToMany(type => Solicitacao, solicitacao => solicitacao.titular, { eager:true })
+  @OneToMany(type => Solicitacao, solicitacao => solicitacao.titular  )
   solicitacao: Solicitacao[];
 
-  @ManyToOne(type => Pessoa, pessoa => pessoa.titular, {cascade: true, onDelete: "CASCADE"})
+  @ManyToOne(type => Pessoa, pessoa => pessoa.titular, {eager:true, cascade: true, onDelete: "CASCADE"})
   @JoinColumn({name: "idpessoa"})
   pessoa: Pessoa;
 }

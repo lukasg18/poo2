@@ -16,7 +16,7 @@ export class Depedente extends BaseEntity{
   @JoinColumn({name: "idtitular"})
   titular: Titular;
 
-  @ManyToOne(type => Pessoa, pessoa => pessoa.depedente, {cascade: true, onDelete: "CASCADE"})
+  @ManyToOne(type => Pessoa, pessoa => pessoa.depedente, {eager:true, cascade: true, onDelete: "CASCADE"})
   @JoinColumn({name: "idpessoa"})
   pessoa: Pessoa;
 
