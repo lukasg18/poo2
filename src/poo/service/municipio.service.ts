@@ -18,12 +18,12 @@ export class MunicipioService{
       return await Municipio.save(municipio);
     }
 
-    // async Update(body) {
-    //   let m = new Municipio();
-    //   m.idmunicipio = body.idmunicipio;
-    //   let busca = await Municipio.findOne({ idmunicipio: m.idmunicipio });
-    //   busca.nome = body.nome;
-    //   return await Municipio.save(busca);
-    // }
+    async Update(body) {
+      let m = new Municipio();
+      m.idmunicipio = body.idmunicipio;
+      let busca = await Municipio.findOne({ idmunicipio: m.idmunicipio });
+      busca.nome = body.nome;
+      return await Municipio.save(busca);
+    }
     
 }
