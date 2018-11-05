@@ -15,6 +15,7 @@ import { BairroService } from './service/bairro.service';
 import { BairroController } from './controller/bairro.controller';
 import { MunicipioService } from './service/municipio.service';
 import { MunicipioController } from './controller/municipio.controller';
+import { LaboratorioService } from './service/laboratorio.service';
 
 const modelProvider = [...databaseProviders];
 
@@ -26,10 +27,11 @@ const modelService = [
   SexoService,
   EstadoService,
   BairroService,
-  MunicipioService
+  MunicipioService,
+  LaboratorioService
 ];
 
-const modelController = [PessoaController, TitularController, SexoController, AtendenteController, EstadoController, BairroController, MunicipioController];
+const modelController = [PessoaController, TitularController, SexoController, AtendenteController, EstadoController, BairroController, MunicipioController, LaboratorioService];
 
 @Module({
   providers: [...modelProvider, ...modelService],

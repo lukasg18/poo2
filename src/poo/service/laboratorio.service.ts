@@ -30,9 +30,9 @@ export class LaboratorioService{
 			return await Laboratorio.remove(busca);
 		} catch (err) {
 			throw new Error(
-				`Erro ao salvar laboratorio\n Erro: ${err.name}\n Mensagem: ${
+				`Erro ao tentar remover laboratorio\n Erro: ${err.name}\n Mensagem: ${
 					err.message
-				}\n Os parametros estao certos?`,
+				}\n Os parametros estao certos?`
 			);
 		}
 	}
