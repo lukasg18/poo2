@@ -1,13 +1,14 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Laboratorio } from '../model/laboratorio.entity';
+import { genericInterface } from './interface/generic.interface';
 
 @Injectable()
 export class LaboratorioService{
+	
+	async readAll() {
+		return await Laboratorio.find();
+	}
 
-    async readAll() {
-        return await Laboratorio.find();
-    }
-    
     async readOne(id:number) {
         return await Laboratorio.findOne({idlaboratorio:id});
 	}

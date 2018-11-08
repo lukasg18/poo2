@@ -1,11 +1,9 @@
 import { Get, Controller, Param, Post, Body } from '@nestjs/common';
-import { LaboratorioService } from 'poo/service/laboratorio.service';
-import { UpdateDateColumn } from 'typeorm';
-import { Municipio } from 'poo/model/municipio.entity';
-import { Laboratorio } from 'poo/model/laboratorio.entity';
+import { LaboratorioService } from '../service/laboratorio.service';
+import { Laboratorio } from '../model/laboratorio.entity';
 
 @Controller()
-export class MunicipioController {
+export class LaboratorioController {
   constructor(private readonly laboratorioService: LaboratorioService) {}
 
   @Get('/laboratorio')
