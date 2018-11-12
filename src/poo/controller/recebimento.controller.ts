@@ -1,27 +1,27 @@
 import { Get, Controller, Param, Post, Body } from '@nestjs/common';
-import { RecebimentoService } from 'poo/service/recebimento.service';
-import { Recebimento } from 'poo/model/recebimento.entity';
+import { RecebimentoService } from '../service/recebimento.service';
+import { Recebimento } from '../model/recebimento.entity';
 
 @Controller()
 export class RecebimentoController {
   constructor(private readonly recebService: RecebimentoService) {}
 
-  @Get('/receb')
+  @Get('/recebimento')
   readAll():any {
     return this.recebService.readAll();
   }
 
-  @Get('/receb/:id')
+  @Get('/recebimento/:id')
   readOne(@Param() param ):any {
     return this.recebService.readOne(param.id);
   }
 
-  @Post('/receb')
+  @Post('/recebimento')
   Create(@Body() body):any {
     return this.recebService.Create(body);
   }
 
-  @Post('/receb/update')
+  @Post('/recebimento/update')
   public updateOne(@Body() body: Recebimento) {
     return this.recebService.Update(body);
   }

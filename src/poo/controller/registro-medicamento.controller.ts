@@ -6,22 +6,22 @@ import { RegistroMedicamento } from '../model/registro-medicamento.entity';
 export class RegistroMedicamentoController {
   constructor(private readonly regmedService: RegMedService) {}
 
-  @Get('/regmed')
+  @Get('/registro-medicamento')
   readAll():any {
     return this.regmedService.readAll();
   }
 
-  @Get('/regmed/:id')
+  @Get('/registro-medicamento/:id')
   readOne(@Param() param ):any {
     return this.regmedService.readOne(param.id);
   }
 
-  @Post('/regmed')
+  @Post('/registro-medicamento')
   Create(@Body() body):any {
     return this.regmedService.Create(body);
   }
 
-  @Post('/regmed/update')
+  @Post('/registro-medicamento/update')
   public updateOne(@Body() body: RegistroMedicamento) {
     return this.regmedService.Update(body);
   }

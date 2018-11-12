@@ -14,17 +14,18 @@ export class RegMedService{
 	  
     async Create(body: any){
 		let regmed = new RegistroMedicamento();
-		regmed.atendente = body.atendente;
-		regmed.data_hora = body.data_hora;
-		regmed.medicamentoPosto = body.medicamentoPosto;
 		regmed.quantidade = body.quantidade;
+		regmed.data_hora = body.data_hora;
+		regmed.atendente = body.idatendente;
+		regmed.medicamentoPosto = body.idmedicamentoposto;
+		console.log(regmed)
 		return await RegistroMedicamento.save(regmed);
     }
 
 	async Drop(body: any): Promise<RegistroMedicamento> {
 		let regmed = new RegistroMedicamento();
 		let busca;
-		regmed.idregistromedicamento = body.idlaboratorio;
+		regmed.idregistromedicamento = body.idregistromedicamento;
 		try {
 			busca = await RegistroMedicamento.findOne({
 				idregistromedicamento: regmed.idregistromedicamento

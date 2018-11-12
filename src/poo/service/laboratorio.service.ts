@@ -1,6 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Laboratorio } from '../model/laboratorio.entity';
-import { genericInterface } from './interface/generic.interface';
 
 @Injectable()
 export class LaboratorioService{
