@@ -15,8 +15,8 @@ export class LaboratorioService{
 	  
     async Create(body: any){
 		let laboratorio = new Laboratorio();
-		laboratorio.nome = body.nome;
 		laboratorio.idlaboratorio = body.idlaboratorio;
+		laboratorio.nome = body.nome;
 		return await Laboratorio.save(laboratorio);
     }
 
