@@ -15,6 +15,12 @@ import { BairroService } from './service/bairro.service';
 import { BairroController } from './controller/bairro.controller';
 import { MunicipioService } from './service/municipio.service';
 import { MunicipioController } from './controller/municipio.controller';
+import { LaboratorioService } from './service/laboratorio.service';
+import { LaboratorioController } from './controller/laboratorio.controller';
+import { RegMedService } from './service/registro-medicamento.service';
+import { RegistroMedicamentoController } from './controller/registro-medicamento.controller';
+import { RecebimentoService } from './service/recebimento.service';
+import { RecebimentoController } from './controller/recebimento.controller';
 import { SolicitacaoService } from './service/solicitacao.service';
 import { SolicitacaoController } from './controller/solicitacao.controller';
 
@@ -29,10 +35,25 @@ const modelService = [
   EstadoService,
   BairroService,
   MunicipioService,
-  SolicitacaoService
+  SolicitacaoService,
+  LaboratorioService,
+  RecebimentoService,
+  RegMedService,
 ];
 
-const modelController = [PessoaController, TitularController, SexoController, AtendenteController, EstadoController, BairroController, MunicipioController, SolicitacaoController];
+const modelController = [
+  PessoaController,
+  TitularController,
+  SexoController,
+  AtendenteController,
+  EstadoController,
+  BairroController,
+  MunicipioController,
+  SolicitacaoController,
+  LaboratorioController,
+  RegistroMedicamentoController,
+  RecebimentoController,
+];
 
 @Module({
   providers: [...modelProvider, ...modelService],
