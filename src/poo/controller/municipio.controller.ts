@@ -1,7 +1,6 @@
 import { Get, Controller, Param, Post, Body } from '@nestjs/common';
 import { MunicipioService } from '../service/municipio.service';
-import { UpdateDateColumn } from 'typeorm';
-import { Municipio } from 'poo/model/municipio.entity';
+import { Municipio } from '../model/municipio.entity';
 
 
 @Controller()
@@ -23,8 +22,8 @@ export class MunicipioController {
     return this.municipioService.Create(body);
   }
 
-  // @Post('/municipio/update')
-  // public updateOne(@Body() body: Municipio) {
-  //   return this.municipioService.Update(body);
-  // }
+  @Post('/municipio/update')
+  public updateOne(@Body() body: Municipio) {
+    return this.municipioService.Update(body);
+  }
 }
