@@ -24,7 +24,7 @@ export class BairroController {
 
   @Post('/bairro/remove')
   public removeOne(@Body() body:Bairro) {
-    return this.bairroService.Remove(body);
+    return this.bairroService.Drop(body);
   }
 
   @Post('/bairro/update')

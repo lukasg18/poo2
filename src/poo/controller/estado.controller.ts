@@ -26,4 +26,9 @@ export class EstadoController {
   public updateOne(@Body() body: Estado) {
     return this.estadoService.Update(body);
   }
+
+  // @Post('/estado/remove')
+  // public removeOne(@Body() body:Estado) {
+  //   return this.estadoService.Drop(body);
+  // }
 }

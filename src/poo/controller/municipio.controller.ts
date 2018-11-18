@@ -26,4 +26,9 @@ export class MunicipioController {
   public updateOne(@Body() body: Municipio) {
     return this.municipioService.Update(body);
   }
+
+  // @Post('/municipio/remove')
+  // public removeOne(@Body() body:Municipio) {
+  //   return this.municipioService.Drop(body);
+  // }
 }
