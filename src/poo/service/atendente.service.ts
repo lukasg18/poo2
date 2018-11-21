@@ -1,7 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Atendente } from '../model/atendente.entity';
 import { IAtendente } from './interface/atendente.interface';
-import { Pessoa } from '../model/pessoa.entity';
 
 @Injectable()
 export class AtendenteService implements IAtendente {
@@ -70,7 +69,7 @@ export class AtendenteService implements IAtendente {
       return await Atendente.remove(busca);
     } catch (err) {
       throw new Error(
-        `Erro ao salvar atedente\n Erro: ${err.name}\n Mensagem: ${
+        `Erro ao deletar atedente\n Erro: ${err.name}\n Mensagem: ${
           err.message
         }\n Os parametros estao certos?`,
       );
@@ -85,7 +84,7 @@ export class AtendenteService implements IAtendente {
       return await Atendente.save(busca);
     } catch (err) {
       throw new Error(
-        `Erro ao salvar atedente\n Erro: ${err.name}\n Mensagem: ${
+        `Erro ao atualizar atedente\n Erro: ${err.name}\n Mensagem: ${
           err.message
         }\n Os parametros estao certos?`,
       );

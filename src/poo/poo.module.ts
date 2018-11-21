@@ -23,6 +23,7 @@ import { RecebimentoService } from './service/recebimento.service';
 import { RecebimentoController } from './controller/recebimento.controller';
 import { SolicitacaoService } from './service/solicitacao.service';
 import { SolicitacaoController } from './controller/solicitacao.controller';
+import { DependenteService } from './service/depedente.service';
 
 const modelProvider = [...databaseProviders];
 
@@ -39,6 +40,7 @@ const modelService = [
   LaboratorioService,
   RecebimentoService,
   RegMedService,
+  DependenteService
 ];
 
 const modelController = [
