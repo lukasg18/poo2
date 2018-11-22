@@ -6,8 +6,6 @@ import { MedicamentoService } from './service/medicamento.service';
 import { AtendenteService } from './service/atendente.service';
 import { TitularService } from './service/titular.service';
 import { TitularController } from './controller/titular.controller';
-import { SexoService } from './service/sexo.service';
-import { SexoController } from './controller/sexo.controller';
 import { AtendenteController } from './controller/atendente.controller';
 import { EstadoService } from './service/estado.service';
 import { EstadoController } from './controller/estado.controller';
@@ -24,6 +22,9 @@ import { RecebimentoController } from './controller/recebimento.controller';
 import { SolicitacaoService } from './service/solicitacao.service';
 import { SolicitacaoController } from './controller/solicitacao.controller';
 import { DependenteService } from './service/depedente.service';
+import { MedicamentoPostoService } from './service/medicamento-posto.service';
+import { MedicamentoPostoController } from './controller/medicamento-posto.controller';
+import { DependenteController } from './controller/depedente.controller';
 
 const modelProvider = [...databaseProviders];
 
@@ -32,7 +33,7 @@ const modelService = [
   AtendenteService,
   PessoaService,
   TitularService,
-  SexoService,
+  MedicamentoPostoService,
   EstadoService,
   BairroService,
   MunicipioService,
@@ -46,7 +47,6 @@ const modelService = [
 const modelController = [
   PessoaController,
   TitularController,
-  SexoController,
   AtendenteController,
   EstadoController,
   BairroController,
@@ -55,6 +55,8 @@ const modelController = [
   LaboratorioController,
   RegistroMedicamentoController,
   RecebimentoController,
+  MedicamentoPostoController,
+  DependenteController
 ];
 
 @Module({
