@@ -25,6 +25,9 @@ import { DependenteService } from './service/depedente.service';
 import { MedicamentoPostoService } from './service/medicamento-posto.service';
 import { MedicamentoPostoController } from './controller/medicamento-posto.controller';
 import { DependenteController } from './controller/depedente.controller';
+import { MedicamentoController } from './controller/medicamento.controller';
+import { PostoService } from './service/posto.service';
+import { PostoController } from './controller/posto.controller';
 
 const modelProvider = [...databaseProviders];
 
@@ -41,7 +44,8 @@ const modelService = [
   LaboratorioService,
   RecebimentoService,
   RegMedService,
-  DependenteService
+  DependenteService,
+  PostoService
 ];
 
 const modelController = [
@@ -56,7 +60,9 @@ const modelController = [
   RegistroMedicamentoController,
   RecebimentoController,
   MedicamentoPostoController,
-  DependenteController
+  DependenteController,
+  MedicamentoController,
+  PostoController
 ];
 
 @Module({
