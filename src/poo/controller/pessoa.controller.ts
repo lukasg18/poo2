@@ -8,7 +8,7 @@ export class PessoaController {
 
   @Get('/pessoa')
   root(): any {
-    return this.pessoaService.readAll;
+    return this.pessoaService.readAll();
   }
 
   @Post('/pessoa')
