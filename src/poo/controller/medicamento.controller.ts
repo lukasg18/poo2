@@ -29,6 +29,22 @@ export class MedicamentoController {
     }
   }
 
+  @Get('/medicamento/relatorio/1')
+  async relatorio(@Res() res, @Param() id) {
+    try {
+      let mp: MedicamentoService[] = await this.medicamentoService.Relatorio();
+      if (mp != undefined) {
+        res.status(HttpStatus.OK).send(mp);
+      } else {
+        res
+          .status(HttpStatus.NOT_FOUND)
+          .send('Nenhum mp encontrado na busca');
+      }
+    } catch (err) {
+      res.status(HttpStatus.BAD_GATEWAY).send(err.message);
+    }
+  }
+
   @Get('/medicamento')
   async readAll(@Res() res) {
     try {
