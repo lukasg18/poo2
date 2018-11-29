@@ -60,19 +60,4 @@ export class MedicamentoService implements genericInterface<Medicamento>{
       );
     }
   }
-
-  async Relatorio(): Promise<Medicamento | any> {
-    try {
-    return Medicamento.createQueryBuilder("medicamento")
-    .select("medicamento.nome")
-    .innerJoin("medicamento.laboratorio", "laboratorio")
-    .where("medicamento.idmedicamento = 60").getOne()
-    } catch (err) {
-      throw new Error(
-        `Erro ao atualizar Medicamento \n Erro: ${err.name}\n Mensagem: ${
-          err.message
-        }\n Os parametros estao certos?`,
-      );
-    }
-  }
 }
