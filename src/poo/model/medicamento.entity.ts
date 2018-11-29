@@ -28,7 +28,7 @@ export class Medicamento extends BaseEntity{
   //############################ RELAÇÕES #############################
   //###################################################################
 
-  @ManyToMany(type => Laboratorio, {cascade: true, onDelete: "CASCADE"})
+  @ManyToMany(type => Laboratorio, {eager:true, cascade: true, onDelete: "CASCADE"})
   @JoinTable({
     name: 'medicamento_laboratorio',
     joinColumn: {
