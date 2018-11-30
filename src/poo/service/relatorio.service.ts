@@ -22,7 +22,9 @@ export class RelatorioService{
     .innerJoin("medicamento.medicamentoPosto", "medicamentoPosto")
     .innerJoin("medicamentoPosto.recebimento", "recebimento")
     .groupBy("medicamento.nome")
-    .groupBy("medicamento.idmedicamento").getRawMany()
+    .groupBy("medicamento.idmedicamento")
+    .orderBy("medicamento.nome")
+    .limit(10).getRawMany()
     } catch (err) {
       throw new Error(
         `Erro ao atualizar Medicamento \n Erro: ${err.name}\n Mensagem: ${
@@ -48,7 +50,9 @@ export class RelatorioService{
     .innerJoin("medicamento.medicamentoPosto", "medicamentoPosto")
     .innerJoin("medicamentoPosto.recebimento", "recebimento")
     .groupBy("medicamento.nome")
-    .groupBy("medicamento.idmedicamento").getRawMany()
+    .groupBy("medicamento.idmedicamento")
+    .orderBy("medicamento.nome")
+    .limit(10).getRawMany()
     } catch (err) {
       throw new Error(
         `Erro ao atualizar Medicamento \n Erro: ${err.name}\n Mensagem: ${
@@ -66,6 +70,26 @@ export class RelatorioService{
   // INNER JOIN solicitacao AS so ON (so.idmedicamentoposto = mp.idmedicamentoposto)
   // GROUP BY me.idmedicamento
   // ORDER BY "Quantidade" DESC;
+
+  async SumQuanntidadeSolicitado(): Promise<Medicamento | any> {
+    try {
+    return Medicamento.createQueryBuilder("medicamento")
+    .select("medicamento.nome")
+    .addSelect("SUM(solicitacao.quantidademedicamento) as quantidade")
+    .innerJoin("medicamento.medicamentoPosto", "medicamentoPosto")
+    .innerJoin("medicamentoPosto.solicitacao", "solicitacao")
+    .groupBy("medicamento.nome")
+    .groupBy("medicamento.idmedicamento")
+    .orderBy("medicamento.nome")
+    .limit(10).getRawMany()
+    } catch (err) {
+      throw new Error(
+        `Erro ao atualizar Medicamento \n Erro: ${err.name}\n Mensagem: ${
+          err.message
+        }\n Os parametros estao certos?`,
+      );
+    }
+  }
   
   // -- Para relatório de medicamento mais solicitados pelos pacientes em relação por quantidade de solicatações
   // CREATE VIEW view_medicamentos_mais_solicitados_por_numero_solicitacoes AS
@@ -75,13 +99,50 @@ export class RelatorioService{
   // GROUP BY me.idmedicamento
   // ORDER BY "Número de Solicitações" DESC;
   
-  // /* VOLTADO PARA O SUBSISTEMA DE SOLICITACAO DE MEDICAMENTOS REALIZADO PELA POPULAÇÃO */
-  // DROP VIEW IF EXISTS view_medicamentos_para_solicitacao;
+  async CountQuanntidadeSolicitado(): Promise<Medicamento | any> {
+    try {
+    return Medicamento.createQueryBuilder("medicamento")
+    .select("medicamento.nome")
+    .addSelect("COUNT(solicitacao.quantidademedicamento) as numero_de_solicitacoes")
+    .innerJoin("medicamento.medicamentoPosto", "medicamentoPosto")
+    .innerJoin("medicamentoPosto.solicitacao", "solicitacao")
+    .groupBy("medicamento.nome")
+    .groupBy("medicamento.idmedicamento")
+    .orderBy("medicamento.nome")
+    .limit(10).getRawMany()
+    } catch (err) {
+      throw new Error(
+        `Erro ao atualizar Medicamento \n Erro: ${err.name}\n Mensagem: ${
+          err.message
+        }\n Os parametros estao certos?`,
+      );
+    }
+  }
   
+  // -- para relatório
   // CREATE VIEW view_medicamentos_para_solicitacao AS
   // SELECT me.nome AS "Nome", po.nome AS "Posto", la.nome AS "Laboratório", mp.estadomedicamento AS "Disponibilidade" FROM medicamento AS me
   // INNER JOIN medicamento_laboratorio AS ml ON(ml.idmedicamento = me.idmedicamento)
   // INNER JOIN laboratorio AS la ON (la.idlaboratorio = ml.idlaboratorio)
   // INNER JOIN medicamento_posto AS mp ON (mp.idmedicamento = me.idmedicamento)
   // INNER JOIN posto AS po ON (po.idposto = mp.idposto);
+
+  async MedicamentosParaSolicitacao(): Promise<Medicamento | any> {
+    try {
+    return Medicamento.createQueryBuilder("medicamento")
+    .select("medicamento.nome as medicamento, posto.nome as posto, laboratorio.nome as laboratorio, medicamentoPosto.estadomedicamento")
+    .innerJoin("medicamento.medicamentoPosto", "medicamentoPosto")
+    .innerJoin("medicamentoPosto.posto", "posto")
+    .innerJoin("medicamento.laboratorio", "laboratorio")
+    .groupBy("medicamento.nome, posto.nome, laboratorio.nome, medicamentoPosto.estadomedicamento")
+    .orderBy("medicamento.nome")
+    .limit(10).getRawMany()
+    } catch (err) {
+      throw new Error(
+        `Erro ao atualizar Medicamento \n Erro: ${err.name}\n Mensagem: ${
+          err.message
+        }\n Os parametros estao certos?`,
+      );
+    }
+  }
 }
