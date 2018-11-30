@@ -29,10 +29,10 @@ export class SolicitacaoController {
     }
   }
 
-  @Get('/solicitacao')
-  async readAll(@Res() res) {
+  @Get('/solicitacao/page/:id')
+  async readAll(@Res() res, @Param() id) {
     try {
-      let atendente: Atendente[] = await this.solicitacaoService.readAll();
+      let atendente: Atendente[] = await this.solicitacaoService.readAll(id.id);
       if (atendente != undefined) {
         res.status(HttpStatus.OK).send(atendente);
       } else {
