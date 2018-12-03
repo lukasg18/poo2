@@ -13,8 +13,8 @@ export class SolicitacaoService{
     .innerJoin("medicamentoPosto.posto", "posto")
     .innerJoin("medicamentoPosto.medicamento", "medicamento")
     .innerJoin("medicamento.laboratorio", "laboratorio")
-    .skip(pag * 10)
-    .take(10)
+    .offset(pag * 10)
+    .limit(10)
     .getRawMany();
   }
 
