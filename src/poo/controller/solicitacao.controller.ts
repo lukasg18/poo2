@@ -6,11 +6,14 @@ import {
   Param,
   Post,
   Body,
+  UseInterceptors,
+  CacheInterceptor
 } from '@nestjs/common';
 import { Atendente } from '../model/atendente.entity';
 import { SolicitacaoService } from '../service/solicitacao.service';
 
 @Controller()
+@UseInterceptors(CacheInterceptor)
 export class SolicitacaoController {
   constructor(private readonly solicitacaoService: SolicitacaoService) {}
   @Get('/solicitacao/:id')

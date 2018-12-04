@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { CacheModule, Module } from '@nestjs/common';
 import { PessoaService } from './service/pessoa.service';
 import { databaseProviders } from './database/database.providers';
 import { PessoaController } from './controller/pessoa.controller';
@@ -30,6 +30,7 @@ import { PostoService } from './service/posto.service';
 import { PostoController } from './controller/posto.controller';
 import { RelatorioService } from './service/relatorio.service';
 import { RelatorioController } from './controller/relatorio.controller';
+import { APP_INTERCEPTOR } from '@nestjs/core';
 
 const modelProvider = [...databaseProviders];
 
@@ -70,6 +71,10 @@ const modelController = [
 ];
 
 @Module({
+  imports: [CacheModule.register({
+    ttl: 10,
+    max: 10, 
+  })],
   providers: [...modelProvider, ...modelService],
   controllers: [...modelController],
 })
