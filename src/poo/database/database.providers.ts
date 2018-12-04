@@ -8,12 +8,12 @@ import { createConnection } from 'typeorm';
 //       host: 'localhost',
 //       port: 5432,
 //       username: 'postgres',
-//       password: '123456',
+//       password: '123',
 //       database: 'postgres',
 //       entities: [
 //           __dirname + '/../**/*.entity{.ts,.js}',
 //       ],
-//       dropSchema:true,
+//       dropSchema:false,
 //       synchronize: true,
 //     }),
 //   },
@@ -32,7 +32,7 @@ export const databaseProviders = [
       entities: [
           __dirname + '/../**/*.entity{.ts,.js}',
       ],
-      synchronize: true,
+      synchronize: false,
     }),
   },
 ];

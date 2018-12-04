@@ -1,7 +1,8 @@
 import { Get, Controller, Param, Post, Body } from '@nestjs/common';
 import { LaboratorioService } from '../service/laboratorio.service';
 import { Laboratorio } from '../model/laboratorio.entity';
-
+import { ApiUseTags } from '@nestjs/swagger';
+@ApiUseTags('poo')
 @Controller()
 export class LaboratorioController {
   constructor(private readonly laboratorioService: LaboratorioService) {}

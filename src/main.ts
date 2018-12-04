@@ -11,6 +11,7 @@ async function bootstrap() {
     .setDescription('todas as rotas referentes ao trabalho')
     .setVersion('1.0')
     .addTag('poo')
+    .setSchemes('https', 'http')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('docs', app, document);

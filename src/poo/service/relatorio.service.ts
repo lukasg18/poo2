@@ -27,7 +27,7 @@ export class RelatorioService{
     .limit(10).getRawMany()
     } catch (err) {
       throw new Error(
-        `Erro ao atualizar Medicamento \n Erro: ${err.name}\n Mensagem: ${
+        `Erro ao verificar o relatorio \n Erro: ${err.name}\n Mensagem: ${
           err.message
         }\n Os parametros estao certos?`,
       );
@@ -55,7 +55,7 @@ export class RelatorioService{
     .limit(10).getRawMany()
     } catch (err) {
       throw new Error(
-        `Erro ao atualizar Medicamento \n Erro: ${err.name}\n Mensagem: ${
+        `Erro ao verificar o relatorio \n Erro: ${err.name}\n Mensagem: ${
           err.message
         }\n Os parametros estao certos?`,
       );
@@ -84,7 +84,7 @@ export class RelatorioService{
     .limit(10).getRawMany()
     } catch (err) {
       throw new Error(
-        `Erro ao atualizar Medicamento \n Erro: ${err.name}\n Mensagem: ${
+        `Erro ao verificar o relatorio \n Erro: ${err.name}\n Mensagem: ${
           err.message
         }\n Os parametros estao certos?`,
       );
@@ -112,7 +112,7 @@ export class RelatorioService{
     .limit(10).getRawMany()
     } catch (err) {
       throw new Error(
-        `Erro ao atualizar Medicamento \n Erro: ${err.name}\n Mensagem: ${
+        `Erro ao verificar o relatorio \n Erro: ${err.name}\n Mensagem: ${
           err.message
         }\n Os parametros estao certos?`,
       );
@@ -139,7 +139,7 @@ export class RelatorioService{
     .limit(10).getRawMany()
     } catch (err) {
       throw new Error(
-        `Erro ao atualizar Medicamento \n Erro: ${err.name}\n Mensagem: ${
+        `Erro ao verificar o relatorio \n Erro: ${err.name}\n Mensagem: ${
           err.message
         }\n Os parametros estao certos?`,
       );

@@ -8,7 +8,8 @@ import {
   Body,
 } from '@nestjs/common';
 import { DependenteService } from '../service/depedente.service';
-
+import { ApiUseTags } from '@nestjs/swagger';
+@ApiUseTags('poo')
 @Controller()
 export class DependenteController {
   constructor(private readonly depedenteService: DependenteService) {}

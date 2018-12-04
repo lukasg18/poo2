@@ -8,7 +8,8 @@ import {
   Body,
 } from '@nestjs/common';
 import { PostoService } from '../service/posto.service';
-
+import { ApiUseTags } from '@nestjs/swagger';
+@ApiUseTags('poo')
 @Controller()
 export class PostoController {
   constructor(private readonly postoService: PostoService) {}

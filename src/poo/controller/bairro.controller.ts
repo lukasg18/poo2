@@ -1,8 +1,9 @@
 import { Get, Controller, Param, Post, Body } from '@nestjs/common';
 import { BairroService } from '../service/bairro.service';
 import { Bairro } from '../model/bairro.entity';
+import { ApiUseTags } from '@nestjs/swagger';
 
-
+@ApiUseTags('poo')
 @Controller()
 export class BairroController {
   constructor(private readonly bairroService: BairroService) {}
@@ -24,7 +25,7 @@ export class BairroController {
 
   @Post('/bairro/remove')
   public removeOne(@Body() body:Bairro) {
-    return this.bairroService.Remove(body);
+    return this.bairroService.Drop(body)
   }
 
   @Post('/bairro/update')

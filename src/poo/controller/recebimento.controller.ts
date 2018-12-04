@@ -1,7 +1,8 @@
 import { Get, Controller, Param, Post, Body } from '@nestjs/common';
 import { RecebimentoService } from '../service/recebimento.service';
 import { Recebimento } from '../model/recebimento.entity';
-
+import { ApiUseTags } from '@nestjs/swagger';
+@ApiUseTags('poo')
 @Controller()
 export class RecebimentoController {
   constructor(private readonly recebService: RecebimentoService) {}

@@ -1,7 +1,8 @@
 import { Get, Controller, Param, Post, Body, Res, HttpStatus } from '@nestjs/common';
 import { PessoaService } from '../service/pessoa.service';
 import { Pessoa } from '../model/pessoa.entity';
-
+import { ApiUseTags } from '@nestjs/swagger';
+@ApiUseTags('poo')
 @Controller()
 export class PessoaController {
   constructor(private readonly pessoaService: PessoaService) {}

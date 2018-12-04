@@ -1,8 +1,9 @@
 import { Get, Controller, Res, HttpStatus, Param } from '@nestjs/common';
 import { TitularService } from '../service/titular.service';
 import { Titular } from '../model/titular.entity';
+import { ApiUseTags } from '@nestjs/swagger';
 
-
+@ApiUseTags('poo')
 @Controller()
 export class TitularController {
   constructor(private readonly titularService: TitularService) {}

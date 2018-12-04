@@ -1,7 +1,8 @@
 import { Get, Controller, Param, Post, Body } from '@nestjs/common';
 import { RegMedService } from '../service/registro-medicamento.service';
 import { RegistroMedicamento } from '../model/registro-medicamento.entity';
-
+import { ApiUseTags } from '@nestjs/swagger';
+@ApiUseTags('poo')
 @Controller()
 export class RegistroMedicamentoController {
   constructor(private readonly regmedService: RegMedService) {}
