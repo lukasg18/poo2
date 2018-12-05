@@ -15,7 +15,7 @@ export class DependenteService implements genericInterface<Depedente>{
   async Create(body: any): Promise<Depedente> {
     let depedente = new Depedente();
     try {
-      depedente.pessoa = body.idpessoa;
+      depedente.idpessoa = body.idpessoa;
       depedente.titular = body.idtitular;
       return await Depedente.save(depedente);
     } catch (err) {

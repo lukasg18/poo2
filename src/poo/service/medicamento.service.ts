@@ -16,8 +16,8 @@ export class MedicamentoService implements genericInterface<Medicamento>{
   async Create(body: any): Promise<Medicamento> {
     let medicamento = new Medicamento();
     try {
-      medicamento.nome = body.idposto;
-      medicamento.bula = body.idmedicamento;
+      medicamento.nome = body.nome;
+      medicamento.bula = body.bula;
       return await Medicamento.save(medicamento);
     } catch (err) {
       throw new Error(

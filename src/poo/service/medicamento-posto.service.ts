@@ -20,6 +20,7 @@ export class MedicamentoPostoService implements genericInterface<MedicamentoPost
       mp.datavencimento = body.datavencimento;
       mp.estadomedicamento = body.estadomedicamento;
       mp.quantidade = body.quantidade;
+      mp.medicamento = body.idmedicamento;
       return await MedicamentoPosto.save(mp);
     } catch (err) {
       throw new Error(

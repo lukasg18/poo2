@@ -15,11 +15,10 @@ export class RecebimentoService implements genericInterface<Recebimento> {
   async Create(body: any) {
     let receb = new Recebimento();
     try {
-      receb.atendente = body.atendente;
+      receb.atendente = body.idatendente;
       receb.data_hora = body.data_hora;
-      receb.idrecebimento = body.idrecebimento;
-      receb.medicamentoPosto = body.medicamentoPosto;
-      receb.pessoa = body.pessoa;
+      receb.medicamentoPosto = body.idmedicamentoPosto;
+      receb.pessoa = body.idpessoa;
       receb.quantidademedicamentos = body.quantidademedicamentos;
       return await Recebimento.save(receb);
     } catch (err) {

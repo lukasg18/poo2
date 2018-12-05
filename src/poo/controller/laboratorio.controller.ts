@@ -26,4 +26,9 @@ export class LaboratorioController {
   public updateOne(@Body() body: Laboratorio) {
     return this.laboratorioService.Update(body);
   }
+
+  @Post('/laboratorio/remover')
+  public remover(@Body() body: Laboratorio) {
+    return this.laboratorioService.Drop(body)
+  }
 }

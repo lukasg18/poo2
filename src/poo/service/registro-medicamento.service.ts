@@ -55,10 +55,10 @@ export class RegMedService implements genericInterface<RegistroMedicamento> {
       let busca = await RegistroMedicamento.findOne({
         idregistromedicamento: regmed.idregistromedicamento,
       });
-      busca.atendente = body.atendente;
+      busca.atendente = body.idatendente;
       busca.data_hora = body.data_hora;
       busca.quantidade = body.quantidade;
-      busca.medicamentoPosto = body.medicamentoPosto;
+      busca.medicamentoPosto = body.idmedicamentoPosto;
       return await RegistroMedicamento.save(busca);
     } catch (err) {
       throw new Error(

@@ -15,6 +15,7 @@ export class TitularService {
     let titular = new Titular();
     try {
       titular.numerosus = body.numerosus;
+      titular.idpessoa = body.idpessoa;
       return await Titular.save(titular);
     } catch (err) {
       throw new Error(
